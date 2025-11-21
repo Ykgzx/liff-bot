@@ -1,24 +1,23 @@
 // lib/mongodb.ts
 import { MongoClient } from "mongodb";
 
-// ตรวจสอบก่อนใช้งาน
 if (!process.env.MONGODB_URI) {
-  throw new Error("Please add MONGODB_URI to your environment variables");
+  throw new Error("MONGODB_URI is not defined in environment variables");
 }
 
-const uri = process.env.MONGODB_URI; // ✅ ตอนนี้ type คือ string
-
+const uri = process.env.MONGODB_URI;
 let client: MongoClient;
 
+// ใช้ global cache เฉพาะใน development
+declare global {
+  var _mongoClient: MongoClient | undefined;
+}
+
 if (process.env.NODE_ENV === "development") {
-  const globalWithMongo = global as typeof globalThis & {
-    _mongoClient?: MongoClient;
-  };
-  if (!globalWithMongo._mongoClient) {
-    globalWithMongo._mongoClient = new MongoClient(uri);
-    globalWithMongo._mongoClient.connect();
+  if (!global._mongoClient) {
+    global._mongoClient = new MongoClient(uri);
   }
-  client = globalWithMongo._mongoClient;
+  client = global._mongoClient;
 } else {
   client = new MongoClient(uri);
 }

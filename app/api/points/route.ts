@@ -1,65 +1,27 @@
+// app/api/points/route.ts
 import { getDb } from "@/lib/mongodb";
 
-export async function POST(req: Request) {
-  try {
-    const { lineId, code } = await req.json();
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const lineId = searchParams.get("lineId");
 
-    // Validate input
-    if (!lineId || typeof lineId !== "string" || !code || typeof code !== "string") {
-      return Response.json({ success: false, message: "ข้อมูลไม่ถูกต้อง" }, { status: 400 });
-    }
-
-    const db = await getDb();
-
-    // --- 1) ตรวจสอบรหัส
-    const data = await db.collection("codes").findOne({ code });
-    if (!data) {
-      return Response.json({ success: false, message: "รหัสไม่ถูกต้อง" }, { status: 400 });
-    }
-    if (data.usedBy) {
-      return Response.json({ success: false, message: "รหัสนี้ถูกใช้ไปแล้ว" }, { status: 400 });
-    }
-
-    const points = data.points;
-
-    // --- 2) บันทึกประวัติ
-    await db.collection("points").insertOne({
-      lineId,
-      points,
-      type: "earn",
-      description: "Claim Code",
-      date: new Date(),
-    });
-
-    // --- 3) อัปเดตแต้มผู้ใช้
-    await db.collection("user").updateOne(
-      { lineId },
-      {
-        $setOnInsert: {
-          name: "",
-          picture: "",
-          totalPoints: 0,
-          createdAt: new Date(),
-        },
-        $inc: { totalPoints: points },
-      },
-      { upsert: true }
-    );
-
-    // --- 4) ทำเครื่องหมายว่ารหัสใช้แล้ว
-    await db.collection("codes").updateOne(
-      { code },
-      { $set: { usedBy: lineId, usedAt: new Date() } }
-    );
-
-    return Response.json({
-      success: true,
-      message: `คุณได้รับ ${points} แต้ม`,
-    });
-  } catch (error) {
-    console.error("Error in /api/points:", error);
+  if (!lineId || typeof lineId !== "string") {
     return Response.json(
-      { success: false, message: "เกิดข้อผิดพลาดภายในระบบ" },
+      { success: false, message: "lineId จำเป็น" },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const db = await getDb();
+    const user = await db.collection("user").findOne({ lineId });
+    const totalPoints = user?.totalPoints ?? 0;
+
+    return Response.json({ success: true, totalPoints });
+  } catch (error) {
+    console.error("Error in /api/points (GET):", error);
+    return Response.json(
+      { success: false, message: "ไม่สามารถโหลดแต้มได้" },
       { status: 500 }
     );
   }

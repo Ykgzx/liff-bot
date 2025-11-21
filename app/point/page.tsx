@@ -3,24 +3,30 @@
 
 import { useState, useEffect } from 'react';
 
+interface LiffProfile {
+  userId: string;
+  displayName: string;
+  pictureUrl?: string;
+  statusMessage?: string;
+}
+
 export default function PointPage() {
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<LiffProfile | null>(null);
   const [points, setPoints] = useState<number | null>(null);
   const [code, setCode] = useState('');
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // โหลดโปรไฟล์จาก LIFF
   useEffect(() => {
     const initLiff = async () => {
       const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
       if (!liffId) {
-        setMessage({ type: 'error', text: 'ไม่พบ LIFF ID' });
+        setMessage({ type: 'error', text: 'ไม่พบ LIFF ID — ตรวจสอบ .env.local' });
         return;
       }
 
       try {
-        const liff = (await import('@line/liff')).default as any;
+        const liff = (await import('@line/liff')).default;
         await liff.init({ liffId });
 
         if (!liff.isLoggedIn()) {
@@ -40,20 +46,20 @@ export default function PointPage() {
     initLiff();
   }, []);
 
-  // ดึงแต้มปัจจุบันจาก API
   const loadPoints = async (lineId: string) => {
     try {
       const res = await fetch(`/api/points?lineId=${encodeURIComponent(lineId)}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (data.success) {
         setPoints(data.totalPoints);
       }
     } catch (err) {
-      console.error('Failed to load points');
+      console.error('Failed to load points:', err);
+      setMessage({ type: 'error', text: 'ไม่สามารถโหลดแต้มได้' });
     }
   };
 
-  // ฟังก์ชันแลกแต้ม
   const handleRedeem = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!profile || !code.trim()) return;
@@ -119,9 +125,7 @@ export default function PointPage() {
           type="submit"
           disabled={loading || !code.trim()}
           className={`w-full py-2 px-4 rounded-lg font-medium text-white ${
-            loading
-              ? 'bg-gray-400'
-              : 'bg-indigo-600 hover:bg-indigo-700'
+            loading ? 'bg-gray-400' : 'bg-indigo-600 hover:bg-indigo-700'
           } transition`}
         >
           {loading ? 'กำลังแลก...' : 'แลกแต้ม'}
