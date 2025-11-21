@@ -1,21 +1,26 @@
 import { MongoClient } from "mongodb";
 
-const uri = process.env.MONGODB_URI!;
-let client;
-let clientPromise: Promise<MongoClient>;
-
 if (!process.env.MONGODB_URI) {
-  throw new Error("Add MONGODB_URI to .env");
+  throw new Error('Add MONGODB_URI to .env');
 }
+
+const uri = process.env.MONGODB_URI;
+let client: MongoClient;
 
 if (process.env.NODE_ENV === "development") {
-  // ป้องกันการสร้าง client ซ้ำตอน hot reload
-  if (!(global as any)._mongoClient) {
-    (global as any)._mongoClient = new MongoClient(uri).connect();
+  // ใช้ globalThis เพื่อป้องกันการสร้าง connection ซ้ำใน dev
+  const globalWithMongo = global as typeof globalThis & {
+    _mongoClientPromise?: Promise<MongoClient>;
+  };
+
+  if (!globalWithMongo._mongoClientPromise) {
+    client = new MongoClient(uri);
+    globalWithMongo._mongoClientPromise = client.connect();
   }
-  clientPromise = (global as any)._mongoClient;
+  client = await globalWithMongo._mongoClientPromise;
 } else {
-  clientPromise = new MongoClient(uri).connect();
+  client = new MongoClient(uri);
+  await client.connect();
 }
 
-export default clientPromise;
+export default client;
