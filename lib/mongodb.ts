@@ -1,26 +1,29 @@
+// lib/mongodb.ts
 import { MongoClient } from "mongodb";
 
+// ตรวจสอบก่อนใช้งาน
 if (!process.env.MONGODB_URI) {
-  throw new Error('Add MONGODB_URI to .env');
+  throw new Error("Please add MONGODB_URI to your environment variables");
 }
 
-const uri = process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI; // ✅ ตอนนี้ type คือ string
+
 let client: MongoClient;
 
 if (process.env.NODE_ENV === "development") {
-  // ใช้ globalThis เพื่อป้องกันการสร้าง connection ซ้ำใน dev
   const globalWithMongo = global as typeof globalThis & {
-    _mongoClientPromise?: Promise<MongoClient>;
+    _mongoClient?: MongoClient;
   };
-
-  if (!globalWithMongo._mongoClientPromise) {
-    client = new MongoClient(uri);
-    globalWithMongo._mongoClientPromise = client.connect();
+  if (!globalWithMongo._mongoClient) {
+    globalWithMongo._mongoClient = new MongoClient(uri);
+    globalWithMongo._mongoClient.connect();
   }
-  client = await globalWithMongo._mongoClientPromise;
+  client = globalWithMongo._mongoClient;
 } else {
   client = new MongoClient(uri);
-  await client.connect();
 }
 
-export default client;
+export async function getDb() {
+  await client.connect();
+  return client.db("liffmembership");
+}
