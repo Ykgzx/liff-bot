@@ -1,65 +1,207 @@
-import Image from "next/image";
+// app/page.tsx
+'use client';
 
-export default function Home() {
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function WelcomePage() {
+  const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const initLiff = async () => {
+      const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
+      if (!liffId) {
+        setError('❌ LIFF ID ไม่ได้ตั้งค่า');
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const liff = (await import('@line/liff')).default;
+        await liff.init({ liffId });
+
+        if (liff.isLoggedIn()) {
+          setIsLoggedIn(true);
+        }
+      } catch (err) {
+        console.error('LIFF error:', err);
+        setError('⚠️ ไม่สามารถเชื่อมต่อกับ LINE ได้');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initLiff();
+  }, []);
+
+  const handleLogin = async () => {
+    const liff = (await import('@line/liff')).default;
+    liff.login();
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white flex items-center justify-center px-4">
+        <div className="text-center">
+          <div className="relative">
+            <div className="inline-block animate-spin rounded-full h-14 w-14 border-4 border-indigo-200"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-6 w-6 bg-indigo-600 rounded-full animate-pulse"></div>
+            </div>
+          </div>
+          <p className="mt-4 text-gray-600 font-medium">กำลังเชื่อมต่อกับระบบ...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-rose-50 to-white flex items-center justify-center px-4">
+        <div className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md text-center border border-rose-100">
+          <div className="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span className="text-2xl">⚠️</span>
+          </div>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">เชื่อมต่อไม่สำเร็จ</h2>
+          <p className="text-gray-600 mb-5 leading-relaxed">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-5 py-2.5 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition shadow-sm w-full"
+          >
+            ลองอีกครั้ง
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (isLoggedIn) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center px-4 pb-6">
+        {/* Header */}
+        <div className="w-full max-w-md pt-8 text-center">
+          <div className="inline-block mb-4">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+              <span className="text-2xl text-white">👋</span>
+            </div>
+          </div>
+          <h1 className="text-2xl font-bold text-gray-800">ยินดีต้อนรับกลับ!</h1>
+          <p className="text-gray-600 mt-1">คุณเข้าสู่ระบบเรียบร้อยแล้ว</p>
+        </div>
+
+        {/* Quick Stats / Summary */}
+        <div className="w-full max-w-md mt-8 grid grid-cols-2 gap-4">
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 text-center">
+            <div className="text-lg font-bold text-indigo-700">1,250</div>
+            <div className="text-xs text-gray-500 mt-1">คะแนนสะสม</div>
+          </div>
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 text-center">
+            <div className="text-lg font-bold text-emerald-600">3</div>
+            <div className="text-xs text-gray-500 mt-1">แคมเปญใหม่</div>
+          </div>
+        </div>
+
+        {/* Action Cards */}
+        <div className="w-full max-w-md mt-6 space-y-3">
+          <button
+            onClick={() => router.push('/campaign')}
+            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-100 hover:shadow-md transition"
+          >
+            <div className="flex items-center">
+              <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center mr-3">
+                <span className="text-amber-700">🎁</span>
+              </div>
+              <div className="text-left">
+                <div className="font-medium text-gray-800">แคมเปญพิเศษ</div>
+                <div className="text-xs text-gray-500">รับส่วนลด 20%</div>
+              </div>
+            </div>
+            <span className="text-gray-400">→</span>
+          </button>
+
+          <button
+            onClick={() => router.push('/point')}
+            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-100 hover:shadow-md transition"
+          >
+            <div className="flex items-center">
+              <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mr-3">
+                <span className="text-emerald-700">⭐</span>
+              </div>
+              <div className="text-left">
+                <div className="font-medium text-gray-800">คะแนนสะสม</div>
+                <div className="text-xs text-gray-500">แลกของรางวัล</div>
+              </div>
+            </div>
+            <span className="text-gray-400">→</span>
+          </button>
+
+          <button
+            onClick={() => router.push('/noti')}
+            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 hover:shadow-md transition"
+          >
+            <div className="flex items-center">
+              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
+                <span className="text-blue-700">🔔</span>
+              </div>
+              <div className="text-left">
+                <div className="font-medium text-gray-800">การแจ้งเตือน</div>
+                <div className="text-xs text-gray-500">ดูข้อความล่าสุด</div>
+              </div>
+            </div>
+            <span className="text-gray-400">→</span>
+          </button>
+        </div>
+
+        {/* Footer CTA */}
+        <div className="mt-8 w-full max-w-md">
+          <button
+            onClick={() => router.push('/profile')}
+            className="w-full px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+          >
+            ดูโปรไฟล์ของคุณ
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-indigo-50 flex flex-col items-center justify-center px-4">
+      <div className="text-center max-w-md space-y-2">
+        {/* Logo / Icon */}
+        <div className="relative inline-block mb-6">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+            <span className="text-3xl text-white">💬</span>
+          </div>
+          <div className="absolute -inset-2 bg-indigo-300/30 rounded-2xl blur animate-pulse"></div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Headline */}
+        <h1 className="text-3xl font-bold text-gray-900 leading-tight">
+          ยินดีต้อนรับสู่ <span className="text-indigo-600">Chatbot</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="text-gray-600 mt-3 mb-8 leading-relaxed">
+          เชื่อมต่อผ่าน LINE เพื่อเข้าถึงบริการพิเศษ คะแนนสะสม และแคมเปญสุดเอ็กซ์คลูซีฟ
+        </p>
+
+        {/* Login Button */}
+        <button
+          onClick={handleLogin}
+          className="w-full max-w-xs px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold text-lg rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 active:translate-y-0"
+        >
+          🔑 เข้าสู่ระบบด้วย LINE
+        </button>
+
+        {/* Footer note */}
+        <div className="mt-8 text-sm text-gray-500">
+          <p>บริการนี้ใช้งานได้เฉพาะในแอป LINE เท่านั้น</p>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
