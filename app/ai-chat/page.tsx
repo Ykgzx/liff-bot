@@ -235,32 +235,34 @@ export default function ChatPage() {
         for (const line of lines) {
           if (!line.trim()) continue;
 
-          // Handle custom format: 0:{"type":"text-delta","textDelta":"..."}
+          // Handle Vercel AI SDK text stream format: 0:"text content"
           if (line.startsWith('0:')) {
+            const payload = line.slice(2);
             try {
-              const data = JSON.parse(line.slice(2));
-              if (data.type === 'text-delta' && data.textDelta) {
-                assistantContent += data.textDelta;
+              // Try to parse as JSON (handles escaped strings properly)
+              const parsed = JSON.parse(payload);
+              if (typeof parsed === 'string') {
+                assistantContent += parsed;
+              } else if (parsed.type === 'text-delta' && parsed.textDelta) {
+                // Custom format fallback
+                assistantContent += parsed.textDelta;
               }
             } catch (e) {
-              // Try as plain text (Vercel AI SDK format)
-              const textContent = line.slice(2).replace(/^"|"$/g, '');
-              if (textContent) {
-                assistantContent += textContent;
+              // If JSON parse fails, try to extract text directly
+              if (payload.startsWith('"') && payload.endsWith('"')) {
+                // Remove surrounding quotes and unescape
+                try {
+                  const text = JSON.parse(payload);
+                  assistantContent += text;
+                } catch {
+                  // Last resort: strip quotes manually
+                  assistantContent += payload.slice(1, -1);
+                }
               }
-            }
-          }
-          // Handle Vercel AI SDK text stream format
-          else if (line.startsWith('0:"')) {
-            try {
-              const textContent = JSON.parse(line.slice(2));
-              assistantContent += textContent;
-            } catch (e) {
-              // Ignore parsing errors
             }
           }
 
-          // Update message content
+          // Update message content after processing each line
           if (assistantContent) {
             setMessages(prev =>
               prev.map(msg =>
