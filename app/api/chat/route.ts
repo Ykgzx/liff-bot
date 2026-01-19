@@ -1,8 +1,9 @@
-import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 import { streamText } from 'ai';
 import { NextRequest } from 'next/server';
 import { searchFAQ } from '@/app/utils/faqSearch';
 import { processConversationalMessage } from '@/app/utils/conversationalFlow';
+import { searchProducts, formatProductsForAI } from '@/app/utils/productSearch';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
           headers: { 'Content-Type': 'application/json' }
         });
       }
-      
+
       if (!['user', 'assistant', 'system'].includes(message.role)) {
         return new Response(JSON.stringify({
           error: 'Invalid message role',
@@ -61,11 +62,11 @@ export async function POST(req: NextRequest) {
     }
     // Rate limiting check (basic implementation)
     const userAgent = req.headers.get('user-agent') || 'unknown';
-    const rateLimitKey = `rate_limit_${userAgent}`;
+    // const rateLimitKey = `rate_limit_${userAgent}`;
 
     // Get the last user message
     const lastUserMessage = [...messages].reverse().find((m: any) => m.role === 'user') || messages[messages.length - 1];
-    
+
     // Check FAQ first for electronics-related questions
     const faqMatch = await searchFAQ(lastUserMessage.content);
     if (faqMatch) {
@@ -86,8 +87,8 @@ export async function POST(req: NextRequest) {
     // Check if this is a product consultation conversation
     // Use local conversational flow for product recommendations
     const conversationLower = lastUserMessage.content.toLowerCase();
-    const isProductRelated = 
-      conversationLower.includes('ครีม') || 
+    const isProductRelated =
+      conversationLower.includes('ครีม') ||
       conversationLower.includes('สกินแคร์') ||
       conversationLower.includes('ผลิตภัณฑ์') ||
       conversationLower.includes('ผิว') ||
@@ -169,18 +170,13 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // Fallback: use OpenAI streaming when OpenAI key is configured
-    const apiKey = process.env.OPENAI_API_KEY;
-    const hasValidOpenAI = apiKey && apiKey !== 'your_openai_api_key_here';
+    // Gemini Integration
+    const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
-    if (!hasValidOpenAI) {
+    if (!apiKey) {
       // No external AI service configured
-      // Return a helpful message with setup instructions
-      const helpMessage = `ขออภัย ระบบ AI ยังไม่ได้รับการตั้งค่า กรุณาตั้งค่าให้หนึ่งในนี้:\n\n` +
-        `1. OpenAI: ตั้งค่า OPENAI_API_KEY ใน .env\n` +
-        `2. Dialogflow: ตั้งค่า DIALOGFLOW_PROJECT_ID และ DIALOGFLOW_TOKEN\n\n` +
-        `อย่างไรก็ตาม ฉันสามารถตอบคำถามจากฐานข้อมูล FAQ เกี่ยวกับสินค้าอิเล็กทรอนิกส์ได้`;
-      
+      const helpMessage = `ขออภัย ระบบ AI ยังไม่ได้รับการตั้งค่า API Key สำหรับ Google Gemini`;
+
       const stream = new ReadableStream({
         start(controller) {
           const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: helpMessage })}\n`;
@@ -195,42 +191,44 @@ export async function POST(req: NextRequest) {
     }
 
     // Create the streaming response with enhanced error handling
-    // Add system prompt for conversational flow with clarifying questions
-    const systemPrompt = `You are a helpful product consultant assistant for an electronics store. 
-Your role is to help customers find the perfect products by asking clarifying questions based on their needs.
+    // Search for relevant products based on user query
+    const relevantProducts = await searchProducts(lastUserMessage.content, 15);
+    const productContext = formatProductsForAI(relevantProducts);
 
-Guidelines:
-1. Listen carefully to what the customer wants
-2. Ask one or two clarifying questions at a time to narrow down their needs
-3. Consider factors like: product type, skin type (if relevant), budget, features needed, brand preference
-4. Be friendly, professional, and concise
-5. Always respond in Thai language
-6. Once you have enough information, recommend the best products
+    // Add system prompt with product data for product-aware responses
+    const systemPrompt = `คุณเป็นผู้ช่วยที่ปรึกษาสินค้าอาหารเสริม Amsel 
+คุณสามารถตอบคำถามเกี่ยวกับสินค้าจากข้อมูลด้านล่างนี้
 
-Current conversation context:
-- Total messages exchanged: ${messages.length}
-- Customer's stated needs: Analyze previous messages to understand what they're looking for
+## สินค้าในระบบ:
+${productContext}
 
-Remember to ask follow-up questions to better understand their requirements before making recommendations.`;
+## แนวทางการตอบ:
+1. ตอบคำถามเกี่ยวกับสินค้าโดยอิงจากข้อมูลด้านบน
+2. ถ้าลูกค้าถามถึงสินค้าที่ไม่มีในรายการ ให้แจ้งว่าไม่พบสินค้านั้น
+3. แนะนำสินค้าที่เหมาะสมตามความต้องการของลูกค้า
+4. ตอบเป็นภาษาไทยเสมอ
+5. กระชับ เป็นมิตร และเป็นมืออาชีพ
+6. ถ้าลูกค้าต้องการรายละเอียดเพิ่ม สามารถบอกราคา SKU และหมวดหมู่ได้
+
+บริบทการสนทนา: ข้อความทั้งหมด ${messages.length} ข้อความ`;
 
     const result = await streamText({
-      model: openai('gpt-3.5-turbo'),
+      model: google('gemini-1.5-flash'),
       system: systemPrompt,
       messages: messages.map((message: any) => ({
         role: message.role,
         content: message.content,
       })),
-      temperature: 0.7,
     });
 
     return result.toTextStreamResponse();
-    
+
   } catch (error) {
     console.error('Chat API error:', error);
-    
+
     // Enhanced error handling with specific error types
     if (error instanceof Error) {
-      // OpenAI API key errors
+      // API key errors
       if (error.message.includes('API key') || error.message.includes('authentication')) {
         return new Response(JSON.stringify({
           error: 'Authentication error',
@@ -242,7 +240,7 @@ Remember to ask follow-up questions to better understand their requirements befo
           headers: { 'Content-Type': 'application/json' }
         });
       }
-      
+
       // Rate limiting errors
       if (error.message.includes('rate limit') || error.message.includes('429')) {
         return new Response(JSON.stringify({
@@ -253,13 +251,13 @@ Remember to ask follow-up questions to better understand their requirements befo
           retryAfter: 60 // seconds
         }), {
           status: 429,
-          headers: { 
+          headers: {
             'Content-Type': 'application/json',
             'Retry-After': '60'
           }
         });
       }
-      
+
       // Quota exceeded errors
       if (error.message.includes('quota') || error.message.includes('billing')) {
         return new Response(JSON.stringify({
@@ -270,13 +268,13 @@ Remember to ask follow-up questions to better understand their requirements befo
           retryAfter: 3600 // 1 hour
         }), {
           status: 429,
-          headers: { 
+          headers: {
             'Content-Type': 'application/json',
             'Retry-After': '3600'
           }
         });
       }
-      
+
       // Network/timeout errors
       if (error.message.includes('timeout') || error.message.includes('network')) {
         return new Response(JSON.stringify({
@@ -286,19 +284,6 @@ Remember to ask follow-up questions to better understand their requirements befo
           retryable: true
         }), {
           status: 503,
-          headers: { 'Content-Type': 'application/json' }
-        });
-      }
-      
-      // Model/content errors
-      if (error.message.includes('content_filter') || error.message.includes('safety')) {
-        return new Response(JSON.stringify({
-          error: 'Content filtered',
-          message: 'Your message was filtered for safety reasons. Please try rephrasing.',
-          code: 'CONTENT_FILTER_ERROR',
-          retryable: false
-        }), {
-          status: 400,
           headers: { 'Content-Type': 'application/json' }
         });
       }

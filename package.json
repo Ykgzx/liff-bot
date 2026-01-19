@@ -11,6 +11,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@ai-sdk/google": "^3.0.10",
     "@ai-sdk/openai": "^3.0.12",
     "@line/liff": "^2.27.3",
     "ai": "^6.0.39",
@@ -31,6 +32,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.2.3",
     "eslint": "^9",
     "eslint-config-next": "^15.1.6",
     "fast-check": "^4.5.3",

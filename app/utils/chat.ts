@@ -79,7 +79,7 @@ export function validateMessageInput(input: string): boolean {
   // Additional validation: check for minimum meaningful content
   if (VALIDATION_CONFIG.REQUIRE_MEANINGFUL_CONTENT) {
     // Reject inputs that are only punctuation or special characters
-    const meaningfulContentRegex = /[a-zA-Z0-9\u00C0-\u017F\u4e00-\u9fff]/;
+    const meaningfulContentRegex = /[a-zA-Z0-9\u00C0-\u017F\u0E00-\u0E7F\u4e00-\u9fff]/;
     if (!meaningfulContentRegex.test(trimmedInput)) {
       return false;
     }
@@ -119,7 +119,7 @@ export function getValidationErrorMessage(input: string): string | null {
   }
 
   if (VALIDATION_CONFIG.REQUIRE_MEANINGFUL_CONTENT) {
-    const meaningfulContentRegex = /[a-zA-Z0-9\u00C0-\u017F\u4e00-\u9fff]/;
+    const meaningfulContentRegex = /[a-zA-Z0-9\u00C0-\u017F\u0E00-\u0E7F\u4e00-\u9fff]/;
     if (!meaningfulContentRegex.test(trimmedInput)) {
       return 'Message must contain meaningful content';
     }
@@ -158,16 +158,16 @@ export function saveChatStorage(storage: ChatStorage): { success: boolean; error
 
   try {
     const serializedData = JSON.stringify(storage);
-    
+
     // Check if we're approaching storage limits before saving
     const estimatedSize = new Blob([serializedData]).size;
     const availableSpace = getAvailableStorageSpace();
-    
+
     if (availableSpace !== null && estimatedSize > availableSpace) {
       // Attempt to free up space by removing old conversations
       const optimizedStorage = optimizeStorageForSpace(storage);
       const optimizedData = JSON.stringify(optimizedStorage);
-      
+
       try {
         localStorage.setItem(STORAGE_KEYS.CHAT_HISTORY, optimizedData);
         return { success: true };
@@ -176,13 +176,13 @@ export function saveChatStorage(storage: ChatStorage): { success: boolean; error
         return fallbackToSessionStorage(optimizedStorage);
       }
     }
-    
+
     localStorage.setItem(STORAGE_KEYS.CHAT_HISTORY, serializedData);
     return { success: true };
-    
+
   } catch (error) {
     console.error('Error saving chat storage:', error);
-    
+
     // Handle specific error types
     if (error instanceof DOMException) {
       if (error.name === 'QuotaExceededError' || error.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
@@ -199,7 +199,7 @@ export function saveChatStorage(storage: ChatStorage): { success: boolean; error
         return { success: false, error: 'Storage access denied (private browsing mode)' };
       }
     }
-    
+
     // Generic error - attempt session storage fallback
     return fallbackToSessionStorage(storage);
   }
@@ -235,14 +235,14 @@ export function addMessageToConversation(
   if (conversationIndex >= 0) {
     storage.conversations[conversationIndex].messages.push(message);
     storage.conversations[conversationIndex].updatedAt = new Date();
-    
+
     const saveResult = saveChatStorage(storage);
     return {
       success: saveResult.success,
       warning: saveResult.error
     };
   }
-  
+
   return { success: false, warning: 'Conversation not found' };
 }
 
@@ -250,19 +250,19 @@ export function addMessageToConversation(
  * Create or get current conversation with enhanced persistence
  * Ensures conversation state is maintained across navigation
  */
-export function getCurrentConversation(): { 
-  conversation: Conversation; 
-  warning?: string 
+export function getCurrentConversation(): {
+  conversation: Conversation;
+  warning?: string
 } {
   const result = getChatStorageWithFallback();
   const storage = result.storage;
-  
+
   if (storage.currentConversationId) {
     const existing = storage.conversations.find(
       (conv) => conv.id === storage.currentConversationId
     );
     if (existing) {
-      return { 
+      return {
         conversation: existing,
         warning: result.warning
       };
@@ -273,10 +273,10 @@ export function getCurrentConversation(): {
   const newConversation = createConversation();
   storage.conversations.push(newConversation);
   storage.currentConversationId = newConversation.id;
-  
+
   const saveResult = saveChatStorage(storage);
-  
-  return { 
+
+  return {
     conversation: newConversation,
     warning: saveResult.error || result.warning
   };
@@ -289,7 +289,7 @@ export function getCurrentConversation(): {
 export function clearChatHistory(): { success: boolean; error?: string } {
   const storage = getDefaultChatStorage();
   const result = saveChatStorage(storage);
-  
+
   if (result.success) {
     // Also clear from sessionStorage if it exists
     try {
@@ -300,7 +300,7 @@ export function clearChatHistory(): { success: boolean; error?: string } {
       console.warn('Failed to clear sessionStorage:', error);
     }
   }
-  
+
   return result;
 }
 
@@ -310,7 +310,7 @@ export function clearChatHistory(): { success: boolean; error?: string } {
  */
 export function getConversationsOrderedByActivity(): Conversation[] {
   const storage = getChatStorage();
-  
+
   return [...storage.conversations].sort((a, b) => {
     // Sort by updatedAt timestamp, most recent first
     return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
@@ -329,27 +329,27 @@ export function getConversationSummary(conversation: Conversation): {
 } {
   const messageCount = conversation.messages.length;
   const lastActivity = conversation.updatedAt;
-  
+
   // Generate title from first user message or use default
   let title = 'New Conversation';
   let preview = 'No messages yet';
-  
+
   if (messageCount > 0) {
     const firstUserMessage = conversation.messages.find(msg => msg.role === 'user');
     if (firstUserMessage) {
       // Use first 30 characters of first user message as title
-      title = firstUserMessage.content.length > 30 
+      title = firstUserMessage.content.length > 30
         ? firstUserMessage.content.substring(0, 30) + '...'
         : firstUserMessage.content;
     }
-    
+
     // Use last message as preview
     const lastMessage = conversation.messages[conversation.messages.length - 1];
     preview = lastMessage.content.length > 50
       ? lastMessage.content.substring(0, 50) + '...'
       : lastMessage.content;
   }
-  
+
   return {
     title,
     messageCount,
@@ -362,22 +362,22 @@ export function getConversationSummary(conversation: Conversation): {
  * Create a new conversation and set it as current
  * Enhanced conversation creation with proper ordering
  */
-export function createNewConversation(): { 
-  conversation: Conversation; 
-  success: boolean; 
-  warning?: string 
+export function createNewConversation(): {
+  conversation: Conversation;
+  success: boolean;
+  warning?: string
 } {
   const storage = getChatStorage();
   const newConversation = createConversation();
-  
+
   // Add to conversations list
   storage.conversations.push(newConversation);
-  
+
   // Set as current conversation
   storage.currentConversationId = newConversation.id;
-  
+
   const saveResult = saveChatStorage(storage);
-  
+
   return {
     conversation: newConversation,
     success: saveResult.success,
@@ -396,7 +396,7 @@ export function switchToConversation(conversationId: string): {
 } {
   const storage = getChatStorage();
   const conversation = storage.conversations.find(conv => conv.id === conversationId);
-  
+
   if (!conversation) {
     return {
       conversation: null,
@@ -404,12 +404,12 @@ export function switchToConversation(conversationId: string): {
       warning: 'Conversation not found'
     };
   }
-  
+
   // Update current conversation ID
   storage.currentConversationId = conversationId;
-  
+
   const saveResult = saveChatStorage(storage);
-  
+
   return {
     conversation,
     success: saveResult.success,
@@ -428,17 +428,17 @@ export function deleteConversation(conversationId: string): {
 } {
   const storage = getChatStorage();
   const conversationIndex = storage.conversations.findIndex(conv => conv.id === conversationId);
-  
+
   if (conversationIndex === -1) {
     return {
       success: false,
       warning: 'Conversation not found'
     };
   }
-  
+
   // Remove the conversation
   storage.conversations.splice(conversationIndex, 1);
-  
+
   // If this was the current conversation, switch to another one or create new
   let newCurrentConversation: Conversation | undefined;
   if (storage.currentConversationId === conversationId) {
@@ -457,9 +457,9 @@ export function deleteConversation(conversationId: string): {
       newCurrentConversation = newConv;
     }
   }
-  
+
   const saveResult = saveChatStorage(storage);
-  
+
   return {
     success: saveResult.success,
     warning: saveResult.error,
@@ -482,7 +482,7 @@ export async function retryWithBackoff<T>(
       return await fn();
     } catch (error) {
       lastError = error as Error;
-      
+
       if (attempt === maxRetries) {
         throw lastError;
       }
@@ -502,13 +502,13 @@ export async function retryWithBackoff<T>(
  */
 function getAvailableStorageSpace(): number | null {
   if (typeof window === 'undefined') return null;
-  
+
   try {
     // Test with increasingly large strings to find the limit
     const testKey = '__storage_test__';
     let size = 1024; // Start with 1KB
     let lastSuccessfulSize = 0;
-    
+
     while (size < 10 * 1024 * 1024) { // Max 10MB test
       try {
         const testData = 'x'.repeat(size);
@@ -520,7 +520,7 @@ function getAvailableStorageSpace(): number | null {
         break;
       }
     }
-    
+
     return lastSuccessfulSize;
   } catch (error) {
     return null;
@@ -533,16 +533,16 @@ function getAvailableStorageSpace(): number | null {
  */
 function optimizeStorageForSpace(storage: ChatStorage): ChatStorage {
   const maxConversations = 5; // Keep only the 5 most recent conversations
-  
+
   // Sort conversations by updatedAt (most recent first)
   const sortedConversations = [...storage.conversations].sort(
     (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
   );
-  
+
   // Keep current conversation and most recent ones
   const currentConvId = storage.currentConversationId;
   const optimizedConversations = sortedConversations.slice(0, maxConversations);
-  
+
   // Ensure current conversation is included
   if (currentConvId && !optimizedConversations.find(c => c.id === currentConvId)) {
     const currentConv = storage.conversations.find(c => c.id === currentConvId);
@@ -551,7 +551,7 @@ function optimizeStorageForSpace(storage: ChatStorage): ChatStorage {
       optimizedConversations.push(currentConv);
     }
   }
-  
+
   return {
     ...storage,
     conversations: optimizedConversations,
@@ -566,18 +566,18 @@ function fallbackToSessionStorage(storage: ChatStorage): { success: boolean; err
   if (typeof window === 'undefined') {
     return { success: false, error: 'Server-side rendering environment' };
   }
-  
+
   try {
     sessionStorage.setItem(STORAGE_KEYS.CHAT_HISTORY, JSON.stringify(storage));
-    return { 
-      success: true, 
-      error: 'Using session storage (data will not persist after browser close)' 
+    return {
+      success: true,
+      error: 'Using session storage (data will not persist after browser close)'
     };
   } catch (error) {
     console.error('Session storage fallback failed:', error);
-    return { 
-      success: false, 
-      error: 'Unable to save conversation history' 
+    return {
+      success: false,
+      error: 'Unable to save conversation history'
     };
   }
 }
@@ -586,15 +586,15 @@ function fallbackToSessionStorage(storage: ChatStorage): { success: boolean; err
  * Enhanced chat storage retrieval with fallback mechanisms
  * Handles storage errors and provides robust conversation state restoration
  */
-export function getChatStorageWithFallback(): { 
-  storage: ChatStorage; 
+export function getChatStorageWithFallback(): {
+  storage: ChatStorage;
   source: 'localStorage' | 'sessionStorage' | 'default';
   warning?: string;
 } {
   if (typeof window === 'undefined') {
-    return { 
-      storage: getDefaultChatStorage(), 
-      source: 'default' 
+    return {
+      storage: getDefaultChatStorage(),
+      source: 'default'
     };
   }
 
@@ -638,8 +638,8 @@ export function getChatStorageWithFallback(): {
           })),
         })),
       };
-      return { 
-        storage, 
+      return {
+        storage,
         source: 'sessionStorage',
         warning: 'Conversation history loaded from session storage (temporary)'
       };
@@ -649,8 +649,8 @@ export function getChatStorageWithFallback(): {
   }
 
   // Return default storage
-  return { 
-    storage: getDefaultChatStorage(), 
+  return {
+    storage: getDefaultChatStorage(),
     source: 'default',
     warning: 'Unable to load conversation history'
   };
@@ -722,7 +722,7 @@ export function migrateStorageData(from: 'localStorage' | 'sessionStorage', to: 
   try {
     const sourceStorage = from === 'localStorage' ? localStorage : sessionStorage;
     const targetStorage = to === 'localStorage' ? localStorage : sessionStorage;
-    
+
     const data = sourceStorage.getItem(STORAGE_KEYS.CHAT_HISTORY);
     if (data) {
       targetStorage.setItem(STORAGE_KEYS.CHAT_HISTORY, data);
@@ -731,6 +731,6 @@ export function migrateStorageData(from: 'localStorage' | 'sessionStorage', to: 
   } catch (error) {
     console.error('Storage migration failed:', error);
   }
-  
+
   return false;
 }

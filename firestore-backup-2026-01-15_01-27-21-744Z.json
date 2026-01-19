@@ -1,0 +1,4552 @@
+{
+  "timestamp": "2026-01-15T01:27:20.765Z",
+  "projectId": "bmad-amsel-b2b-crm-dev",
+  "collections": {
+    "audit_logs": {
+      "count": 68,
+      "documents": [
+        {
+          "id": "0BpYTJgNQNq4cGPi2inx",
+          "data": {
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T08:53:14.465Z"
+            },
+            "details": {
+              "previousStatus": "INACTIVE",
+              "roles": [
+                "Customer.Maker"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "atpJOarv3QGnZASTqSQ2"
+          }
+        },
+        {
+          "id": "0hnhFH2z6L3PLqP7rY11",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-26T05:00:32.818Z"
+            },
+            "details": {
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ]
+            },
+            "action": "USER_APPROVED",
+            "userId": "5oZZZUKjBUWvtz5cwr6O"
+          }
+        },
+        {
+          "id": "1844nG6o9gddEdKn3fsI",
+          "data": {
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:36:18.948Z"
+            },
+            "action": "USER_APPROVED",
+            "userId": "YJv4dsrRWiNZVtw2hvNc"
+          }
+        },
+        {
+          "id": "20Unq7RKQo8e0GuB32Hw",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-24T04:15:17.498Z"
+            },
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "neol6AfQM2mlLtte2V2m",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "3E1fWFD4y7sKf4BucVRe",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "ahoxoA4qWE8dZOlSmEqt",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Approver"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-17T09:36:16.829Z"
+            }
+          }
+        },
+        {
+          "id": "6md2ugjmkmtgI3pv7u6c",
+          "data": {
+            "userId": "xxZJGVgBZ53rLumSUDQO",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-24T04:41:06.201Z"
+            },
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Approver"
+              ],
+              "pharmacyId": "2544"
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "7VOs1KvJMn3A4sBMLhGy",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T07:29:07.947Z"
+            },
+            "details": {
+              "previousStatus": "INACTIVE",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544"
+            },
+            "action": "USER_APPROVED",
+            "userId": "RzpEfCqGI3aG4MWAw6uF"
+          }
+        },
+        {
+          "id": "7q3t0zvSpPM35fHZZhLy",
+          "data": {
+            "userId": "YJv4dsrRWiNZVtw2hvNc",
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:38:33.130Z"
+            },
+            "details": {
+              "previousStatus": "INACTIVE",
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ]
+            }
+          }
+        },
+        {
+          "id": "8MAh5enNelwnd2FpmYLZ",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "oXtua6kViUNX7OKgCuF8",
+            "details": {
+              "pharmacyId": "3382",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T01:39:03.708Z"
+            }
+          }
+        },
+        {
+          "id": "AJXX1dohCkqUU2fwww4Z",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T09:50:02.511Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "INACTIVE",
+              "pharmacyId": "2544"
+            },
+            "userId": "RzpEfCqGI3aG4MWAw6uF",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "B3q2jXrLcPVqBltFMwK8",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:39:32.987Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "INACTIVE",
+              "pharmacyId": "2544"
+            },
+            "userId": "Prm4tHcmoqe9SnM5VRiO",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "DcO828Qlxhng51XQVZSS",
+          "data": {
+            "action": "USER_REGISTERED",
+            "userId": "somchai@example.com",
+            "metadata": {
+              "ip": "10.0.0.5",
+              "source": "LINE",
+              "version": "1.0"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:47:47.056Z"
+            }
+          }
+        },
+        {
+          "id": "EnQfuaFUqhcToVF9VvAG",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T06:34:50.077Z"
+            },
+            "action": "USER_APPROVED",
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "Rrd4SzbcCUKKMzjAcejC"
+          }
+        },
+        {
+          "id": "EuyeHUOTIaz4cWm6yfHW",
+          "data": {
+            "userId": "0ZgMejQZ9rRD8usO3C4x",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:04:30.158Z"
+            },
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Approver",
+                "Customer.Maker"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "FEvG2luHoeLKfnaBkrJh",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "VAY4Uc6QfscnyHvNnXZl",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T03:51:54.391Z"
+            }
+          }
+        },
+        {
+          "id": "Fb4IpyRF1ul3qxgAAY2s",
+          "data": {
+            "userId": "8QTa3UCCHzC3tI5m93gy",
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ],
+              "pharmacyId": "2544"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-24T04:40:59.744Z"
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "GWQWk4nTRyUScNQAMpA2",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "ahoxoA4qWE8dZOlSmEqt",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-17T02:50:58.012Z"
+            }
+          }
+        },
+        {
+          "id": "ILNAhz4pM7Mvb6Tyt8jt",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "RzpEfCqGI3aG4MWAw6uF",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T03:47:03.520Z"
+            }
+          }
+        },
+        {
+          "id": "Io1TavqaXXHSvOISREpS",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-05T07:13:08.249Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ],
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544"
+            },
+            "action": "USER_APPROVED",
+            "userId": "57SmH69X2DWGkEXKe9Jm"
+          }
+        },
+        {
+          "id": "J1YSh7wcSvZU0M9EtDoV",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T08:55:01.383Z"
+            },
+            "action": "USER_APPROVED",
+            "details": {
+              "previousStatus": "INACTIVE",
+              "roles": [
+                "Customer.Maker"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "atpJOarv3QGnZASTqSQ2"
+          }
+        },
+        {
+          "id": "Jhi9KbqHFd4RknlpNWKU",
+          "data": {
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Approver"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "Fs6VEs8UP5S0jGNCFTXe",
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-24T07:57:16.681Z"
+            }
+          }
+        },
+        {
+          "id": "KqR2ZxTQKu4J2OzozGF2",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "q1FZeKgBQquKo8uiKlWm",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:12:11.361Z"
+            }
+          }
+        },
+        {
+          "id": "LmUsLTUc15tE1eBjmOaa",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "EAyxgPcxe7PQhGvAAXXa",
+            "details": {
+              "pharmacyId": "3382",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T01:34:14.064Z"
+            }
+          }
+        },
+        {
+          "id": "M5chKZlvdmlnaklGjSVw",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "SFYJR73L1T4Q8euBCadf",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:02:50.214Z"
+            }
+          }
+        },
+        {
+          "id": "PpvLad2NFbTK9SUAuRaz",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:36:13.633Z"
+            },
+            "action": "USER_APPROVED",
+            "details": {
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ]
+            },
+            "userId": "Prm4tHcmoqe9SnM5VRiO"
+          }
+        },
+        {
+          "id": "Q1TNLxnrNDaC6XV184N0",
+          "data": {
+            "userId": "8wJimQpTVLJQzf5JhoQi",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-25T07:07:11.735Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544",
+              "previousStatus": "PENDING"
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "Q4qIkZlH1hnEI82Bb9z5",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "U8iDQ8kxV5vduIxaTjOj",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer",
+                "Customer.Approver"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:00:20.721Z"
+            }
+          }
+        },
+        {
+          "id": "QQvHTkys1zYeJjUQnuta",
+          "data": {
+            "details": {
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ],
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544"
+            },
+            "userId": "7F6wxcUd0m7E2aVK1xdD",
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-25T01:43:59.561Z"
+            }
+          }
+        },
+        {
+          "id": "RCnZ8sD1y6Bvne2Il77D",
+          "data": {
+            "details": {
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Approver",
+                "Customer.Viewer"
+              ]
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-24T04:15:11.634Z"
+            },
+            "action": "USER_APPROVED",
+            "userId": "DiLldZDkcvoQDqL66ZyO"
+          }
+        },
+        {
+          "id": "RuuI56AmYqYzn98q6Xr2",
+          "data": {
+            "userId": "FeCUoZzFUyVWZdWyrvYT",
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-25T07:21:08.989Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544"
+            }
+          }
+        },
+        {
+          "id": "S0n6ogCnT7PkPvkiDdrF",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "9QUKsVlmeTAH48iZkYEq",
+            "details": {
+              "pharmacyId": "2001",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-18T01:57:26.557Z"
+            }
+          }
+        },
+        {
+          "id": "SLEcJjQmiVt9Zzscsug8",
+          "data": {
+            "action": "USER_APPROVED",
+            "details": {
+              "pharmacyId": "2536",
+              "previousStatus": "INACTIVE",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ]
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:13:14.904Z"
+            },
+            "userId": "bzGRZhsofV0YEd7wmxG0"
+          }
+        },
+        {
+          "id": "SzfODimwP7IeDEMI8AI4",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:17:46.805Z"
+            },
+            "action": "USER_APPROVED",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "userId": "CEWSNRIc8yEmGJPKtAqd"
+          }
+        },
+        {
+          "id": "TPaB6xtok5aUvzX4HSV4",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "EAyxgPcxe7PQhGvAAXXa",
+            "details": {
+              "pharmacyId": "3400",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T03:18:33.782Z"
+            }
+          }
+        },
+        {
+          "id": "TQyTfqK37FSZgtODe7gg",
+          "data": {
+            "userId": "Prm4tHcmoqe9SnM5VRiO",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:41:39.129Z"
+            },
+            "action": "USER_APPROVED",
+            "details": {
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "INACTIVE",
+              "pharmacyId": "2544"
+            }
+          }
+        },
+        {
+          "id": "Tqjd0qxpz2JAvtcDQ1aR",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "HMiAFkCI5aySpVaakoLG",
+            "details": {
+              "pharmacyId": "3382",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer",
+                "Customer.Approver"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T07:59:56.376Z"
+            }
+          }
+        },
+        {
+          "id": "VOVtTNPS0aSNsjmJdW8h",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "bIUU1puLpRze2OPY5zYb",
+            "details": {
+              "pharmacyId": "3371",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:59:41.222Z"
+            }
+          }
+        },
+        {
+          "id": "Xaep3jabAIUMlEyuUWsz",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T08:03:23.504Z"
+            },
+            "userId": "d4CpyWWW06zMg3sUO2dl",
+            "action": "USER_APPROVED",
+            "details": {
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Viewer"
+              ]
+            }
+          }
+        },
+        {
+          "id": "YnqHZ4nvvXQ6LHR3R7yv",
+          "data": {
+            "details": {
+              "roles": [
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544",
+              "previousStatus": "INACTIVE"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:53:12.136Z"
+            },
+            "userId": "CEWSNRIc8yEmGJPKtAqd",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "ZVBJlryijz17OUZL5Jts",
+          "data": {
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "INACTIVE"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:41:42.616Z"
+            },
+            "userId": "YJv4dsrRWiNZVtw2hvNc",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "bD5ydifA9AOssyhl35Yz",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-07T07:06:49.887Z"
+            },
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "userId": "Js0ar93Tjlp5NaW49NSK",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "c57xQhpeIv94tOJ4ufpa",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "KofbWn9debBREL9rBz7K",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "INACTIVE"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:23:23.460Z"
+            }
+          }
+        },
+        {
+          "id": "dZXXziN3DwYdpeBBH3bC",
+          "data": {
+            "details": {
+              "pharmacyId": "2544",
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Viewer"
+              ]
+            },
+            "userId": "Rx977gVZZFeDc9QXBYPd",
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-25T01:19:01.466Z"
+            }
+          }
+        },
+        {
+          "id": "djtvh4DkdiPJKCD3k3En",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:19:19.107Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544"
+            },
+            "action": "USER_APPROVED",
+            "userId": "pHyNKsgKRsKm1AQLaBdU"
+          }
+        },
+        {
+          "id": "eB6TPNt9nuObP9kEolOo",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "9QUKsVlmeTAH48iZkYEq",
+            "details": {
+              "pharmacyId": "2536",
+              "roles": [
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-19T09:28:44.009Z"
+            }
+          }
+        },
+        {
+          "id": "elHijh6DkZhIB1JRIrrz",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T06:46:10.179Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544"
+            },
+            "userId": "RzpEfCqGI3aG4MWAw6uF",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "g92zCmKbSQAEymqrENDl",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "9QUKsVlmeTAH48iZkYEq",
+            "details": {
+              "pharmacyId": "2001",
+              "roles": [
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-19T09:30:27.832Z"
+            }
+          }
+        },
+        {
+          "id": "gUCDHbQum2DnQQ5UprqN",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "ahoxoA4qWE8dZOlSmEqt",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-17T09:36:00.917Z"
+            }
+          }
+        },
+        {
+          "id": "hUvQRM3opmts32Ly5rQX",
+          "data": {
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:21:31.935Z"
+            },
+            "details": {
+              "previousStatus": "INACTIVE",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker",
+                "Customer.Approver"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "pHyNKsgKRsKm1AQLaBdU"
+          }
+        },
+        {
+          "id": "jwlTJqtQpyLM2DLuCD8S",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T06:46:16.405Z"
+            },
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "qZCkx6XFnkh2tp8QuJtK",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "kG5dJ7tTG6gQHDerOeDi",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-26T01:36:54.619Z"
+            },
+            "action": "USER_APPROVED",
+            "userId": "wYd5OKcclWfr6df48g2q",
+            "details": {
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ],
+              "pharmacyId": "2544",
+              "previousStatus": "PENDING"
+            }
+          }
+        },
+        {
+          "id": "kYwvhguK9OpT8tzMZ0kw",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-24T02:56:50.641Z"
+            },
+            "userId": "7tMpN03qPRxgtJVT9mwc",
+            "action": "USER_APPROVED",
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ],
+              "pharmacyId": "2544"
+            }
+          }
+        },
+        {
+          "id": "lyO8WZSzr9HmlUfMykp6",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "XCRQ0ogBgN3rjQDEK4vr",
+            "details": {
+              "pharmacyId": "2044",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer",
+                "Customer.Approver"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T09:40:53.452Z"
+            }
+          }
+        },
+        {
+          "id": "naYwKt7Bb37YyG5sWevB",
+          "data": {
+            "details": {
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ]
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-24T07:56:57.701Z"
+            },
+            "userId": "muHIyp3GA8igb8fGZr7z",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "pYdI2gJVV5WbwnTEUDEq",
+          "data": {
+            "action": "PDPA_CONSENT_ACCEPTED",
+            "userId": "admin@amsel.com",
+            "metadata": {
+              "ip": "192.168.1.1",
+              "version": "1.0"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:47:47.056Z"
+            }
+          }
+        },
+        {
+          "id": "qHRMKEyMkxcmJRIVVKT6",
+          "data": {
+            "userId": "2Fa35w23MCDykVgztgpr",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-05T03:27:58.729Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544",
+              "previousStatus": "PENDING"
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "qd4Gypk80aYjT2SLQweS",
+          "data": {
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:17:53.574Z"
+            },
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544"
+            },
+            "userId": "Q96MY8if7N63VdYjvUnR"
+          }
+        },
+        {
+          "id": "qq3nw51mBmuDiDssNH8T",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-06T03:29:47.521Z"
+            },
+            "details": {
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker",
+                "Customer.Approver"
+              ],
+              "pharmacyId": "2544",
+              "previousStatus": "INACTIVE"
+            },
+            "userId": "57SmH69X2DWGkEXKe9Jm",
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "sBrEGbv6LvRfQuuEeA2s",
+          "data": {
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Maker"
+              ],
+              "pharmacyId": "2544"
+            },
+            "action": "USER_APPROVED",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T08:38:09.375Z"
+            },
+            "userId": "atpJOarv3QGnZASTqSQ2"
+          }
+        },
+        {
+          "id": "spKavRijt9V5MLlIYaKW",
+          "data": {
+            "details": {
+              "pharmacyId": "2536",
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Maker"
+              ]
+            },
+            "userId": "bzGRZhsofV0YEd7wmxG0",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:04:54.129Z"
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "uOBj60uoUXdI0jao23uL",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "U8iDQ8kxV5vduIxaTjOj",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer",
+                "Customer.Approver"
+              ],
+              "previousStatus": "INACTIVE"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:01:08.506Z"
+            }
+          }
+        },
+        {
+          "id": "uxPk1IrcfjipdutZYZC7",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:52:48.053Z"
+            },
+            "details": {
+              "previousStatus": "INACTIVE",
+              "roles": [
+                "Customer.Viewer"
+              ],
+              "pharmacyId": "2544"
+            },
+            "action": "USER_APPROVED",
+            "userId": "pHyNKsgKRsKm1AQLaBdU"
+          }
+        },
+        {
+          "id": "wsnbWRRaOicYYWeuuqbO",
+          "data": {
+            "action": "USER_LOGIN",
+            "userId": "admin@amsel.com",
+            "metadata": {
+              "ip": "192.168.1.1",
+              "browser": "Chrome",
+              "version": "1.0"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:47:47.056Z"
+            }
+          }
+        },
+        {
+          "id": "x85SkxPTQA67Mn7lps6M",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "Cl5EJQQSE7gm8rMh5q2W",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T03:51:46.376Z"
+            }
+          }
+        },
+        {
+          "id": "y0RnGZwsBIoNvv8xadZX",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "KofbWn9debBREL9rBz7K",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Approver",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:21:42.530Z"
+            }
+          }
+        },
+        {
+          "id": "yAaDR33K0n1o4rv2je3u",
+          "data": {
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2026-01-05T06:07:30.762Z"
+            },
+            "userId": "dnVcdRCjI0ZgWfdDKI01",
+            "details": {
+              "previousStatus": "PENDING",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker",
+                "Customer.Approver"
+              ],
+              "pharmacyId": "2544"
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "yGnQV07VTd71pgy1Oiaw",
+          "data": {
+            "userId": "rSEBsD3zZv17wyBAg3yJ",
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-26T02:49:41.870Z"
+            },
+            "details": {
+              "previousStatus": "PENDING",
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Viewer",
+                "Customer.Maker"
+              ]
+            },
+            "action": "USER_APPROVED"
+          }
+        },
+        {
+          "id": "yTb3dHBhaUebhrjU88wG",
+          "data": {
+            "action": "USER_APPROVED",
+            "userId": "ahoxoA4qWE8dZOlSmEqt",
+            "details": {
+              "pharmacyId": "2544",
+              "roles": [
+                "Customer.Maker",
+                "Customer.Viewer"
+              ],
+              "previousStatus": "PENDING"
+            },
+            "timestamp": {
+              "_type": "Timestamp",
+              "_value": "2025-12-17T01:29:49.158Z"
+            }
+          }
+        }
+      ]
+    },
+    "couriers": {
+      "count": 3,
+      "documents": [
+        {
+          "id": "ems",
+          "data": {
+            "name": "EMS Thailand Post",
+            "img": "/ems.png",
+            "url": "https://www.thailandpost.co.th/",
+            "status": "active",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T07:17:31.458Z"
+            },
+            "trackingUrlPattern": "https://track.thailandpost.co.th/?trackNumber={trackingNo}",
+            "sortOrder": 3,
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T04:37:29.783Z"
+            }
+          }
+        },
+        {
+          "id": "flashexpress",
+          "data": {
+            "name": "Flash Express",
+            "img": "/flash.png",
+            "url": "https://www.flashexpress.co.th/",
+            "status": "active",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T07:17:31.320Z"
+            },
+            "trackingUrlPattern": "https://flashexpress.co.th/tracking?se={trackingNo}",
+            "sortOrder": 2,
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T04:37:29.625Z"
+            }
+          }
+        },
+        {
+          "id": "interexpress",
+          "data": {
+            "name": "Inter Express",
+            "img": "/inter.png",
+            "url": "https://www.inter.co.th/",
+            "status": "active",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T07:17:31.189Z"
+            },
+            "trackingUrlPattern": "https://iel.co.th/tracking/?trackingNo={trackingNo}",
+            "sortOrder": 1,
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T04:37:29.474Z"
+            }
+          }
+        }
+      ]
+    },
+    "good_sizes": {
+      "count": 29,
+      "documents": [
+        {
+          "id": "1000",
+          "data": {
+            "name": "10 ซอง",
+            "code": "10SAC",
+            "id": 1000
+          }
+        },
+        {
+          "id": "1001",
+          "data": {
+            "name": "15ซอง",
+            "id": 1001,
+            "code": "15SAC"
+          }
+        },
+        {
+          "id": "1002",
+          "data": {
+            "id": 1002,
+            "name": "30ซอง",
+            "code": "30SAC"
+          }
+        },
+        {
+          "id": "1003",
+          "data": {
+            "code": "45CAP",
+            "name": "45แคฟซูล",
+            "id": 1003
+          }
+        },
+        {
+          "id": "1004",
+          "data": {
+            "name": "30แคฟซูล",
+            "code": "30CAP",
+            "id": 1004
+          }
+        },
+        {
+          "id": "1005",
+          "data": {
+            "name": "60ซอฟเจล",
+            "id": 1005,
+            "code": "60SOF"
+          }
+        },
+        {
+          "id": "1006",
+          "data": {
+            "code": "20CAP",
+            "id": 1006,
+            "name": "20แคฟซูล"
+          }
+        },
+        {
+          "id": "1007",
+          "data": {
+            "code": "60CAP",
+            "id": 1007,
+            "name": "60แคฟซูล"
+          }
+        },
+        {
+          "id": "1008",
+          "data": {
+            "code": "1SAC",
+            "name": "1ซอง",
+            "id": 1008
+          }
+        },
+        {
+          "id": "1009",
+          "data": {
+            "name": "110กรัม",
+            "id": 1009,
+            "code": "110G"
+          }
+        },
+        {
+          "id": "1010",
+          "data": {
+            "name": "5ซอง",
+            "code": "5SAC",
+            "id": 1010
+          }
+        },
+        {
+          "id": "1011",
+          "data": {
+            "name": "40แคฟซูล",
+            "code": "40CAP",
+            "id": 1011
+          }
+        },
+        {
+          "id": "1012",
+          "data": {
+            "code": "10CAP",
+            "id": 1012,
+            "name": "10แคฟซูล"
+          }
+        },
+        {
+          "id": "1013",
+          "data": {
+            "name": "2ซอง",
+            "code": "2SAC",
+            "id": 1013
+          }
+        },
+        {
+          "id": "2000",
+          "data": {
+            "name": "12 ซองซิปล็อค",
+            "code": "12SAC",
+            "id": 2000
+          }
+        },
+        {
+          "id": "2001",
+          "data": {
+            "code": "020ML",
+            "name": "20ml",
+            "id": 2001
+          }
+        },
+        {
+          "id": "2002",
+          "data": {
+            "id": 2002,
+            "code": "125ML",
+            "name": "125ml"
+          }
+        },
+        {
+          "id": "2003",
+          "data": {
+            "code": "200ML",
+            "name": "200ml",
+            "id": 2003
+          }
+        },
+        {
+          "id": "3000",
+          "data": {
+            "id": 3000,
+            "name": "30ซอฟเจล",
+            "code": "30SOF"
+          }
+        },
+        {
+          "id": "3001",
+          "data": {
+            "id": 3001,
+            "name": "25แคฟซูล",
+            "code": "25CAP"
+          }
+        },
+        {
+          "id": "3002",
+          "data": {
+            "name": "100แคฟซูล",
+            "code": "100CAP",
+            "id": 3002
+          }
+        },
+        {
+          "id": "3003",
+          "data": {
+            "name": "5แคฟซูล",
+            "code": "5CAP",
+            "id": 3003
+          }
+        },
+        {
+          "id": "3004",
+          "data": {
+            "name": "1แคฟซูล",
+            "code": "1CAP",
+            "id": 3004
+          }
+        },
+        {
+          "id": "3005",
+          "data": {
+            "name": "50แคฟซูล",
+            "code": "50CAP",
+            "id": 3005
+          }
+        },
+        {
+          "id": "3006",
+          "data": {
+            "name": "150กรัม",
+            "code": "150G",
+            "id": 3006
+          }
+        },
+        {
+          "id": "3007",
+          "data": {
+            "name": "1ใบ",
+            "id": 3007,
+            "code": "1ใบ"
+          }
+        },
+        {
+          "id": "3008",
+          "data": {
+            "name": "75ซอฟเจล",
+            "id": 3008,
+            "code": "75SOF"
+          }
+        },
+        {
+          "id": "3009",
+          "data": {
+            "id": 3009,
+            "name": "15แคฟซูล",
+            "code": "15CAP"
+          }
+        },
+        {
+          "id": "3010",
+          "data": {
+            "name": "120กรัม",
+            "code": "120G",
+            "id": 3010
+          }
+        }
+      ]
+    },
+    "good_units": {
+      "count": 42,
+      "documents": [
+        {
+          "id": "1000",
+          "data": {
+            "code": "กรัม",
+            "id": 1000,
+            "name": "กรัม"
+          }
+        },
+        {
+          "id": "1001",
+          "data": {
+            "code": "กระป๋อง",
+            "name": "กระป๋อง",
+            "id": 1001
+          }
+        },
+        {
+          "id": "1002",
+          "data": {
+            "name": "กล่อง",
+            "id": 1002,
+            "code": "กล่อง"
+          }
+        },
+        {
+          "id": "1003",
+          "data": {
+            "name": "กิโลกรัม",
+            "code": "Kg.",
+            "id": 1003
+          }
+        },
+        {
+          "id": "1004",
+          "data": {
+            "name": "ขวด",
+            "id": 1004,
+            "code": "ขวด"
+          }
+        },
+        {
+          "id": "1005",
+          "data": {
+            "code": "คู่",
+            "id": 1005,
+            "name": "คู่"
+          }
+        },
+        {
+          "id": "1006",
+          "data": {
+            "name": "ครั้ง",
+            "id": 1006,
+            "code": "ครั้ง"
+          }
+        },
+        {
+          "id": "1007",
+          "data": {
+            "name": "แคปซูล",
+            "code": "แคปซูล",
+            "id": 1007
+          }
+        },
+        {
+          "id": "1008",
+          "data": {
+            "name": "คัน",
+            "code": "คัน",
+            "id": 1008
+          }
+        },
+        {
+          "id": "1009",
+          "data": {
+            "id": 1009,
+            "code": "งาน",
+            "name": "งาน"
+          }
+        },
+        {
+          "id": "1010",
+          "data": {
+            "code": "ชุด",
+            "id": 1010,
+            "name": "ชุด"
+          }
+        },
+        {
+          "id": "1011",
+          "data": {
+            "name": "ชิ้น",
+            "code": "ชิ้น",
+            "id": 1011
+          }
+        },
+        {
+          "id": "1012",
+          "data": {
+            "code": "ซอง",
+            "id": 1012,
+            "name": "ซอง"
+          }
+        },
+        {
+          "id": "1013",
+          "data": {
+            "id": 1013,
+            "name": "ดวง",
+            "code": "ดวง"
+          }
+        },
+        {
+          "id": "1014",
+          "data": {
+            "name": "ตัว",
+            "code": "ตัว",
+            "id": 1014
+          }
+        },
+        {
+          "id": "1016",
+          "data": {
+            "name": "ตู้",
+            "code": "ตู้",
+            "id": 1016
+          }
+        },
+        {
+          "id": "1017",
+          "data": {
+            "name": "ถัง",
+            "id": 1017,
+            "code": "ถัง"
+          }
+        },
+        {
+          "id": "1018",
+          "data": {
+            "name": "แผ่น",
+            "code": "แผ่น",
+            "id": 1018
+          }
+        },
+        {
+          "id": "1019",
+          "data": {
+            "name": "แผง",
+            "code": "แผง",
+            "id": 1019
+          }
+        },
+        {
+          "id": "1020",
+          "data": {
+            "name": "ฝา",
+            "code": "ฝา",
+            "id": 1020
+          }
+        },
+        {
+          "id": "1021",
+          "data": {
+            "name": "ม้วน",
+            "id": 1021,
+            "code": "ม้วน"
+          }
+        },
+        {
+          "id": "1022",
+          "data": {
+            "name": "รายการ",
+            "id": 1022,
+            "code": "รายการ"
+          }
+        },
+        {
+          "id": "1023",
+          "data": {
+            "name": "ลัง",
+            "id": 1023,
+            "code": "ลัง"
+          }
+        },
+        {
+          "id": "1024",
+          "data": {
+            "name": "เล่ม",
+            "id": 1024,
+            "code": "เล่ม"
+          }
+        },
+        {
+          "id": "1025",
+          "data": {
+            "code": "สี",
+            "name": "สี",
+            "id": 1025
+          }
+        },
+        {
+          "id": "1026",
+          "data": {
+            "name": "หีบ",
+            "code": "หีบ",
+            "id": 1026
+          }
+        },
+        {
+          "id": "1027",
+          "data": {
+            "code": "โหล",
+            "name": "โหล",
+            "id": 1027
+          }
+        },
+        {
+          "id": "1028",
+          "data": {
+            "name": "ห่อ",
+            "code": "ห่อ",
+            "id": 1028
+          }
+        },
+        {
+          "id": "1029",
+          "data": {
+            "name": "เมตร",
+            "code": "เมตร",
+            "id": 1029
+          }
+        },
+        {
+          "id": "1030",
+          "data": {
+            "id": 1030,
+            "name": "เส้น",
+            "code": "เส้น"
+          }
+        },
+        {
+          "id": "1031",
+          "data": {
+            "code": "แกลลอน",
+            "name": "แกลลอน",
+            "id": 1031
+          }
+        },
+        {
+          "id": "1032",
+          "data": {
+            "code": "แพ็ค",
+            "id": 1032,
+            "name": "แพ็ค"
+          }
+        },
+        {
+          "id": "1033",
+          "data": {
+            "name": "ใบ",
+            "id": 1033,
+            "code": "ใบ"
+          }
+        },
+        {
+          "id": "1034",
+          "data": {
+            "code": "ลูก",
+            "name": "ลูก",
+            "id": 1034
+          }
+        },
+        {
+          "id": "1035",
+          "data": {
+            "id": 1035,
+            "code": "ถุง",
+            "name": "ถุง"
+          }
+        },
+        {
+          "id": "2000",
+          "data": {
+            "code": "ปี",
+            "id": 2000,
+            "name": "ปี"
+          }
+        },
+        {
+          "id": "3000",
+          "data": {
+            "code": "เดือน",
+            "name": "เดือน",
+            "id": 3000
+          }
+        },
+        {
+          "id": "3001",
+          "data": {
+            "name": "ปอนด์",
+            "id": 3001,
+            "code": "ปอนด์"
+          }
+        },
+        {
+          "id": "3002",
+          "data": {
+            "name": "เครื่อง",
+            "code": "เครื่อง",
+            "id": 3002
+          }
+        },
+        {
+          "id": "3003",
+          "data": {
+            "id": 3003,
+            "name": "เพลท",
+            "code": "เพลท"
+          }
+        },
+        {
+          "id": "3004",
+          "data": {
+            "name": "ลิตร",
+            "code": "ลิตร",
+            "id": 3004
+          }
+        },
+        {
+          "id": "4000",
+          "data": {
+            "name": "เม็ด",
+            "id": 4000,
+            "code": "เม็ด"
+          }
+        }
+      ]
+    },
+    "orders": {
+      "count": 10,
+      "documents": [
+        {
+          "id": "5rczHNYNaKCVxz1Xsztw",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "125030",
+                "productName": "Acerola Chery Plus VitaminC500 30's",
+                "quantity": 1,
+                "price": 269,
+                "itemTotal": 269,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 1,
+                      "pricePerPiece": 294,
+                      "subtotal": 294
+                    }
+                  ],
+                  "totalPrice": 294,
+                  "discount": 25,
+                  "finalPrice": 269
+                }
+              }
+            ],
+            "total": 269,
+            "netTotal": 269,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:36:55.264Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:37:03.738Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:37:21.574Z"
+            },
+            "customerApprovedBy": "Patsawat Rodmanee",
+            "customerApprovedById": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:37:30.567Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "EMS Thailand Post",
+            "courier": "ems",
+            "trackingUrl": "https://track.thailandpost.co.th/?trackNumber=EA111111111TH",
+            "status": "Shipping",
+            "trackingId": "EA111111111TH",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:37:50.367Z"
+            }
+          }
+        },
+        {
+          "id": "84sd6MTQPqcWmAWog9U1",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "111240",
+                "productName": "Amsel Amino Collagen Capsule 40's",
+                "quantity": 13,
+                "price": 186.77,
+                "itemTotal": 2428.01,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier2",
+                      "tierSize": 13,
+                      "dealCount": 1,
+                      "pieceCount": 13,
+                      "pricePerPiece": 206.77,
+                      "subtotal": 2688.01
+                    }
+                  ],
+                  "totalPrice": 2688.01,
+                  "discount": 260,
+                  "finalPrice": 2428.01
+                }
+              },
+              {
+                "productId": "114530",
+                "productName": "Artichoke and Dandelion 30's",
+                "quantity": 28,
+                "price": 255,
+                "itemTotal": 7140,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier3",
+                      "tierSize": 28,
+                      "dealCount": 1,
+                      "pieceCount": 28,
+                      "pricePerPiece": 275,
+                      "subtotal": 7700
+                    }
+                  ],
+                  "totalPrice": 7700,
+                  "discount": 560,
+                  "finalPrice": 7140
+                }
+              }
+            ],
+            "total": 9568.01,
+            "netTotal": 9568.01,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:17:19.514Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:17:28.615Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:18:10.820Z"
+            },
+            "customerApprovedBy": "Patsawat Rodmanee",
+            "customerApprovedById": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:18:33.346Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "Inter Express",
+            "courier": "interexpress",
+            "trackingUrl": "https://iel.co.th/tracking/?trackingNo=EA123499999TH",
+            "status": "Shipping",
+            "trackingId": "EA123499999TH",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:18:52.338Z"
+            }
+          }
+        },
+        {
+          "id": "BcP5jMH3Cb0yFGe1SrTC",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "110330",
+                "productName": "Amino Bilberry Extract plus 30's",
+                "quantity": 4,
+                "price": 299,
+                "itemTotal": 1196,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 4,
+                      "pricePerPiece": 329,
+                      "subtotal": 1316
+                    }
+                  ],
+                  "totalPrice": 1316,
+                  "discount": 120,
+                  "finalPrice": 1196
+                }
+              },
+              {
+                "productId": "125030",
+                "productName": "Acerola Chery Plus VitaminC500 30's",
+                "quantity": 5,
+                "price": 269,
+                "itemTotal": 1345,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 5,
+                      "pricePerPiece": 294,
+                      "subtotal": 1470
+                    }
+                  ],
+                  "totalPrice": 1470,
+                  "discount": 125,
+                  "finalPrice": 1345
+                }
+              }
+            ],
+            "total": 2541,
+            "netTotal": 2541,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:29:53.476Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:30:07.053Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:30:42.879Z"
+            },
+            "customerApprovedBy": "Patsawat Rodmanee",
+            "customerApprovedById": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:31:08.794Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "Inter Express",
+            "courier": "interexpress",
+            "trackingUrl": "https://iel.co.th/tracking/?trackingNo=EA999999999TH",
+            "status": "Shipping",
+            "trackingId": "EA999999999TH",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T09:31:29.770Z"
+            }
+          }
+        },
+        {
+          "id": "FhGGAASGLASbDigpSS56",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "125030",
+                "productName": "Acerola Chery Plus VitaminC500 30's",
+                "quantity": 13,
+                "price": 246.38,
+                "itemTotal": 3202.94,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier2",
+                      "tierSize": 13,
+                      "dealCount": 1,
+                      "pieceCount": 13,
+                      "pricePerPiece": 271.38,
+                      "subtotal": 3527.94
+                    }
+                  ],
+                  "totalPrice": 3527.94,
+                  "discount": 325,
+                  "finalPrice": 3202.94
+                }
+              }
+            ],
+            "total": 3202.94,
+            "netTotal": 3202.94,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:13:25.413Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:14:51.905Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:17:37.635Z"
+            },
+            "customerApprovedBy": "Suphakit Ranphol",
+            "customerApprovedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:20:31.097Z"
+            },
+            "adminApprovedById": "F9VSpqlEjBY5R7il2Mif",
+            "adminApprovedBy": "Admin System",
+            "status": "Admin_Approved",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:20:31.097Z"
+            }
+          }
+        },
+        {
+          "id": "V16AbhXm4SywU4v2ijwk",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "110330",
+                "productName": "Amino Bilberry Extract plus 30's",
+                "quantity": 40,
+                "price": 274.325,
+                "itemTotal": 10973,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier3",
+                      "tierSize": 28,
+                      "dealCount": 1,
+                      "pieceCount": 28,
+                      "pricePerPiece": 293.75,
+                      "subtotal": 8225
+                    },
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 12,
+                      "pricePerPiece": 329,
+                      "subtotal": 3948
+                    }
+                  ],
+                  "totalPrice": 12173,
+                  "discount": 1200,
+                  "finalPrice": 10973
+                }
+              },
+              {
+                "productId": "125030",
+                "productName": "Acerola Chery Plus VitaminC500 30's",
+                "quantity": 25,
+                "price": 257.23760000000004,
+                "itemTotal": 6430.9400000000005,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier2",
+                      "tierSize": 13,
+                      "dealCount": 1,
+                      "pieceCount": 13,
+                      "pricePerPiece": 271.38,
+                      "subtotal": 3527.94
+                    },
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 12,
+                      "pricePerPiece": 294,
+                      "subtotal": 3528
+                    }
+                  ],
+                  "totalPrice": 7055.9400000000005,
+                  "discount": 625,
+                  "finalPrice": 6430.9400000000005
+                }
+              }
+            ],
+            "total": 17403.940000000002,
+            "netTotal": 17403.940000000002,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:07:23.444Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:07:30.482Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:07:34.913Z"
+            },
+            "customerApprovedBy": "Suphakit Ranphol",
+            "customerApprovedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:07:44.549Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "Inter Express",
+            "courier": "interexpress",
+            "trackingUrl": "https://iel.co.th/tracking/?trackingNo=EA123456222TH",
+            "status": "Shipping",
+            "trackingId": "EA123456222TH",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:08:04.116Z"
+            }
+          }
+        },
+        {
+          "id": "aaNarFMx9yDfVemlb13I",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "125030",
+                "productName": "Acerola Chery Plus VitaminC500 30's",
+                "quantity": 12,
+                "price": 269,
+                "itemTotal": 3228,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 12,
+                      "pricePerPiece": 294,
+                      "subtotal": 3528
+                    }
+                  ],
+                  "totalPrice": 3528,
+                  "discount": 300,
+                  "finalPrice": 3228
+                }
+              },
+              {
+                "productId": "111240",
+                "productName": "Amsel Amino Collagen Capsule 40's",
+                "quantity": 25,
+                "price": 195.0404,
+                "itemTotal": 4876.01,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier2",
+                      "tierSize": 13,
+                      "dealCount": 1,
+                      "pieceCount": 13,
+                      "pricePerPiece": 206.77,
+                      "subtotal": 2688.01
+                    },
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 12,
+                      "pricePerPiece": 224,
+                      "subtotal": 2688
+                    }
+                  ],
+                  "totalPrice": 5376.01,
+                  "discount": 500,
+                  "finalPrice": 4876.01
+                }
+              }
+            ],
+            "total": 8104.01,
+            "netTotal": 8104.01,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:14:06.800Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:14:16.279Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:14:35.798Z"
+            },
+            "customerApprovedBy": "Suphakit Ranphol",
+            "customerApprovedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:15:00.014Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "EMS Thailand Post",
+            "courier": "ems",
+            "trackingUrl": "https://track.thailandpost.co.th/?trackNumber=EA123456555TH",
+            "status": "Shipping",
+            "trackingId": "EA123456555TH",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:15:43.167Z"
+            }
+          }
+        },
+        {
+          "id": "ccqaJROLnE4vIHguLebW",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "125030",
+                "productName": "Acerola Chery Plus VitaminC500 30's",
+                "quantity": 1,
+                "price": 269,
+                "itemTotal": 269,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 1,
+                      "pricePerPiece": 294,
+                      "subtotal": 294
+                    }
+                  ],
+                  "totalPrice": 294,
+                  "discount": 25,
+                  "finalPrice": 269
+                }
+              },
+              {
+                "productId": "110330",
+                "productName": "Amino Bilberry Extract plus 30's",
+                "quantity": 1,
+                "price": 299,
+                "itemTotal": 299,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 1,
+                      "pricePerPiece": 329,
+                      "subtotal": 329
+                    }
+                  ],
+                  "totalPrice": 329,
+                  "discount": 30,
+                  "finalPrice": 299
+                }
+              },
+              {
+                "productId": "111240",
+                "productName": "Amsel Amino Collagen Capsule 40's",
+                "quantity": 1,
+                "price": 204,
+                "itemTotal": 204,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 1,
+                      "pricePerPiece": 224,
+                      "subtotal": 224
+                    }
+                  ],
+                  "totalPrice": 224,
+                  "discount": 20,
+                  "finalPrice": 204
+                }
+              }
+            ],
+            "total": 772,
+            "netTotal": 772,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:08:00.752Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:08:08.200Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:08:20.977Z"
+            },
+            "customerApprovedBy": "Suphakit Ranphol",
+            "customerApprovedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:08:33.436Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "Flash Express",
+            "courier": "flashexpress",
+            "trackingUrl": "https://flashexpress.co.th/tracking?se=EA123456997TH",
+            "status": "Shipping",
+            "trackingId": "EA123456997TH",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T08:08:49.845Z"
+            }
+          }
+        },
+        {
+          "id": "mZ4HpOewjKtdPDnsO9gj",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "111240",
+                "productName": "Amsel Amino Collagen Capsule 40's",
+                "quantity": 13,
+                "price": 186.77,
+                "itemTotal": 2428.01,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier2",
+                      "tierSize": 13,
+                      "dealCount": 1,
+                      "pieceCount": 13,
+                      "pricePerPiece": 206.77,
+                      "subtotal": 2688.01
+                    }
+                  ],
+                  "totalPrice": 2688.01,
+                  "discount": 260,
+                  "finalPrice": 2428.01
+                }
+              }
+            ],
+            "total": 2428.01,
+            "netTotal": 2428.01,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:48:41.432Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:48:47.384Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:48:52.207Z"
+            },
+            "customerApprovedBy": "Suphakit Ranphol",
+            "customerApprovedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:49:36.083Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "Flash Express",
+            "courier": "flashexpress",
+            "trackingUrl": "https://flashexpress.co.th/tracking?se=EA12345AUDIR8",
+            "status": "Shipping",
+            "trackingId": "EA12345AUDIR8",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T03:08:09.853Z"
+            }
+          }
+        },
+        {
+          "id": "o2Cy5C3GfUYV4OFPMrez",
+          "data": {
+            "userId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "125030",
+                "productName": "Acerola Chery Plus VitaminC500 30's",
+                "quantity": 1,
+                "price": 269,
+                "itemTotal": 269,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 1,
+                      "pricePerPiece": 294,
+                      "subtotal": 294
+                    }
+                  ],
+                  "totalPrice": 294,
+                  "discount": 25,
+                  "finalPrice": 269
+                }
+              }
+            ],
+            "total": 269,
+            "netTotal": 269,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T01:49:11.689Z"
+            },
+            "submittedBy": "Suphakit Ranphol",
+            "submittedById": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T01:49:29.537Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T01:56:02.618Z"
+            },
+            "customerApprovedBy": "Patsawat Rodmanee",
+            "customerApprovedById": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T01:56:52.047Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "trackingUrl": "https://track.thailandpost.co.th/?trackNumber=TH22035CBR650F",
+            "status": "Shipping",
+            "trackingId": "TH220CBR1000RR",
+            "courierName": "Flash Express",
+            "courier": "flashexpress",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T03:41:03.538Z"
+            }
+          }
+        },
+        {
+          "id": "rslBtXDhOawBpq9ssqPT",
+          "data": {
+            "userId": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "pharmacyId": "2544",
+            "items": [
+              {
+                "productId": "111240",
+                "productName": "Amsel Amino Collagen Capsule 40's",
+                "quantity": 1,
+                "price": 204,
+                "itemTotal": 204,
+                "breakdown": {
+                  "tiers": [
+                    {
+                      "tierName": "tier1",
+                      "tierSize": 1,
+                      "dealCount": 0,
+                      "pieceCount": 1,
+                      "pricePerPiece": 224,
+                      "subtotal": 224
+                    }
+                  ],
+                  "totalPrice": 224,
+                  "discount": 20,
+                  "finalPrice": 204
+                }
+              }
+            ],
+            "total": 204,
+            "netTotal": 204,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:50:13.310Z"
+            },
+            "submittedBy": "Patsawat Rodmanee",
+            "submittedById": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "submittedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:50:20.303Z"
+            },
+            "customerApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:50:25.346Z"
+            },
+            "customerApprovedBy": "Patsawat Rodmanee",
+            "customerApprovedById": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "adminApprovedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:54:37.219Z"
+            },
+            "adminApprovedById": "On9PgbVZXOwah7cFnahF",
+            "adminApprovedBy": "ykg zz",
+            "courierName": "Inter Express",
+            "courier": "interexpress",
+            "trackingUrl": "https://iel.co.th/tracking/?trackingNo=TH22035JGTRR35",
+            "status": "Shipping",
+            "trackingId": "TH22035JGTRR35",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:58:47.995Z"
+            }
+          }
+        }
+      ]
+    },
+    "pharmacies": {
+      "count": 7,
+      "documents": [
+        {
+          "id": "2001",
+          "data": {
+            "custId": 2001,
+            "custCode": "100022",
+            "name": "ร้าน บ้านยาเพื่อคุณ",
+            "shortName": null,
+            "creditAmount": 20000,
+            "province": "กรุงเทพมหานคร",
+            "amphur": "เขต สายไหม",
+            "tel": "087-324-6035",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-18T01:57:26.335Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-19T09:30:27.655Z"
+            }
+          }
+        },
+        {
+          "id": "2044",
+          "data": {
+            "custId": 2044,
+            "custCode": "2112930 ",
+            "name": "คุณ กฤติยา ปริวรรณา",
+            "shortName": null,
+            "creditAmount": 3000,
+            "province": "กรุงเทพมหานคร",
+            "amphur": "เขต บางนา",
+            "tel": "096-8716478",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T09:40:53.259Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T09:40:53.259Z"
+            }
+          }
+        },
+        {
+          "id": "2536",
+          "data": {
+            "custId": 2536,
+            "custCode": "100022",
+            "name": "บริษัท คลังยาบางกอก จำกัด",
+            "shortName": null,
+            "creditAmount": 30000,
+            "province": "กรุงเทพมหานคร",
+            "amphur": "เขต บางรัก",
+            "tel": "084-757-0444",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-19T09:28:43.835Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-23T09:13:14.684Z"
+            }
+          }
+        },
+        {
+          "id": "2544",
+          "data": {
+            "custId": 2544,
+            "custCode": "0101314 ",
+            "name": "บริษัท ซูรูฮะ(ประเทศไทย) จำกัด ",
+            "shortName": null,
+            "creditAmount": 5000000,
+            "province": "กรุงเทพมหานคร",
+            "amphur": "เขตสาทร",
+            "tel": "02-6758356",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-17T01:29:48.990Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:23:23.237Z"
+            }
+          }
+        },
+        {
+          "id": "3371",
+          "data": {
+            "custId": 3371,
+            "custCode": "100008",
+            "name": "คุณ ชัชชัย วัฒนเสถียร",
+            "shortName": null,
+            "creditAmount": 20000,
+            "province": "นนทบุรี",
+            "amphur": "อำเภอ บางบัวทอง",
+            "tel": "099-8283629",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:59:41.045Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:59:41.045Z"
+            }
+          }
+        },
+        {
+          "id": "3382",
+          "data": {
+            "custId": 3382,
+            "custCode": "580020",
+            "name": " กรรวีคลินิกเวชกรรม สาขาบางแค",
+            "shortName": null,
+            "creditAmount": 200000,
+            "province": "กรุงเทพมหานคร",
+            "amphur": "เขต ภาษีเจริญ",
+            "tel": "081-811-5406",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T01:34:13.889Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T07:59:56.213Z"
+            }
+          }
+        },
+        {
+          "id": "3400",
+          "data": {
+            "custId": 3400,
+            "custCode": "720048",
+            "name": "คุณ ปิยะพร แสงประจักษ์",
+            "shortName": null,
+            "creditAmount": 20000,
+            "province": "มุกดาหาร",
+            "amphur": "อำเภอ เมือง",
+            "tel": "085-7525255",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T03:18:33.576Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T03:18:33.576Z"
+            }
+          }
+        }
+      ]
+    },
+    "product_categories": {
+      "count": 2,
+      "documents": [
+        {
+          "id": "C8Rosu5P6ZVuTfa9v8sm",
+          "data": {
+            "name": "Capsule",
+            "status": "active",
+            "created_at": {
+              "_type": "Timestamp",
+              "_value": "2026-01-07T08:40:48.220Z"
+            }
+          }
+        },
+        {
+          "id": "WaAV7Hi8keXtzwoc9KOj",
+          "data": {
+            "status": "active",
+            "name": "Powder",
+            "created_at": {
+              "_type": "Timestamp",
+              "_value": "2026-01-07T08:40:41.434Z"
+            }
+          }
+        }
+      ]
+    },
+    "products": {
+      "count": 38,
+      "documents": [
+        {
+          "id": "110330",
+          "data": {
+            "name": "Amino Bilberry Extract plus 30's",
+            "sku": "110330",
+            "barcode": "8859090056501",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/amsel-amino-bilberry-extract-plus-02.webp",
+            "promotionPrice": 282,
+            "priceTier1": 329,
+            "priceTier2": 303.69,
+            "priceTier3": 293.75,
+            "discountPerPiece": 30,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amino Bilberry Extract plus 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.259Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.259Z"
+            }
+          }
+        },
+        {
+          "id": "111140",
+          "data": {
+            "name": "Amsel L-Arginine Plus Zinc 40's",
+            "sku": "111140",
+            "barcode": "8859090057171",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "40แคฟซูล",
+            "sizeId": 1011,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Amsel-L-Arginine-Plus-Zinc.webp",
+            "promotionPrice": 150,
+            "priceTier1": 175,
+            "priceTier2": 161.54,
+            "priceTier3": 156.25,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel L-Arginine Plus Zinc 40's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.614Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.614Z"
+            }
+          }
+        },
+        {
+          "id": "111150",
+          "data": {
+            "name": "Gluta Plus Red Orange Extract 30's",
+            "sku": "111150",
+            "barcode": "8859090058529",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Gluta-Plus-Red-Orange-Extract-01.webp",
+            "promotionPrice": 390,
+            "priceTier1": 455,
+            "priceTier2": 420,
+            "priceTier3": 406.25,
+            "discountPerPiece": 40,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Gluta Plus Red Orange Extract 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.597Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.597Z"
+            }
+          }
+        },
+        {
+          "id": "111160",
+          "data": {
+            "name": "Multi Vit Plus 40's",
+            "sku": "111160",
+            "barcode": "8859090058581",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "40แคฟซูล",
+            "sizeId": 1011,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Multi-Vit-Plus-Minerals-01-768x768.webp",
+            "promotionPrice": 234,
+            "priceTier1": 273,
+            "priceTier2": 252,
+            "priceTier3": 243.75,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Multi Vit Plus 40's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.934Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.934Z"
+            }
+          }
+        },
+        {
+          "id": "111240",
+          "data": {
+            "name": "Amsel Amino Collagen Capsule 40's",
+            "sku": "111240",
+            "barcode": "8859090057256",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "40แคฟซูล",
+            "sizeId": 1011,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Amino-Collagen-Capsule-02.webp",
+            "promotionPrice": 192,
+            "priceTier1": 224,
+            "priceTier2": 206.77,
+            "priceTier3": 200,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Amino Collagen Capsule 40's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.678Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.678Z"
+            }
+          }
+        },
+        {
+          "id": "111340",
+          "data": {
+            "name": "Co Q10 Plus Vitamin E 60's",
+            "sku": "111340",
+            "barcode": "8859090058413",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "60แคฟซูล",
+            "sizeId": 1007,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Coenzyme-Q10-Plus-Vitamin-E-04-768x768.webp",
+            "promotionPrice": 282,
+            "priceTier1": 329,
+            "priceTier2": 303.69,
+            "priceTier3": 293.75,
+            "discountPerPiece": 25,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Co Q10 Plus Vitamin E 60's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.066Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.066Z"
+            }
+          }
+        },
+        {
+          "id": "111530",
+          "data": {
+            "name": "Amsel Rosehip 500 30's",
+            "sku": "111530",
+            "barcode": "8859090057331",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Rosehip-Extract-500mg-1.webp",
+            "promotionPrice": 192,
+            "priceTier1": 224,
+            "priceTier2": 206.77,
+            "priceTier3": 200,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Rosehip 500 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.867Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.867Z"
+            }
+          }
+        },
+        {
+          "id": "111630",
+          "data": {
+            "name": "Amsel Zinc Plus VitaminB Complex 30's",
+            "sku": "111630",
+            "barcode": "8859090057195",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/amsel-zinc-plus-vitamin-premix-01-768x768.webp",
+            "promotionPrice": 132,
+            "priceTier1": 154,
+            "priceTier2": 142.15,
+            "priceTier3": 137.5,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Zinc Plus VitaminB Complex 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.924Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.924Z"
+            }
+          }
+        },
+        {
+          "id": "111660",
+          "data": {
+            "name": "Amsel Zinc Plus VitaminB Complex 60's",
+            "sku": "111660",
+            "barcode": "8859090059205",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "60แคฟซูล",
+            "sizeId": 1007,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/amsel-zinc-plus-vitamin-premix-01-768x768.webp",
+            "promotionPrice": 234,
+            "priceTier1": 273,
+            "priceTier2": 252,
+            "priceTier3": 243.75,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Zinc Plus VitaminB Complex 60's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.986Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.986Z"
+            }
+          }
+        },
+        {
+          "id": "111830",
+          "data": {
+            "name": "Grape Seed 30's",
+            "sku": "111830",
+            "barcode": "8859090058086",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Grape-Seed-Plus-01.webp",
+            "promotionPrice": 216,
+            "priceTier1": 252,
+            "priceTier2": 232.62,
+            "priceTier3": 225,
+            "discountPerPiece": 25,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Grape Seed 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.263Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.263Z"
+            }
+          }
+        },
+        {
+          "id": "111930",
+          "data": {
+            "name": "Lycopene 30's",
+            "sku": "111930",
+            "barcode": "8859090058093",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Lycopene-Plus.webp",
+            "promotionPrice": 270,
+            "priceTier1": 315,
+            "priceTier2": 290.77,
+            "priceTier3": 281.25,
+            "discountPerPiece": 30,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Lycopene 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.390Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.390Z"
+            }
+          }
+        },
+        {
+          "id": "112030",
+          "data": {
+            "name": "Glutamine 800 30's",
+            "sku": "112030",
+            "barcode": "8859090058024",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Glutamine-800-01-768x768.webp",
+            "promotionPrice": 240,
+            "priceTier1": 280,
+            "priceTier2": 258.46,
+            "priceTier3": 250,
+            "discountPerPiece": 25,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Glutamine 800 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.329Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.329Z"
+            }
+          }
+        },
+        {
+          "id": "112130",
+          "data": {
+            "name": "Magnesium 30's",
+            "sku": "112130",
+            "barcode": "8859090058109",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Magnesium-Plus-01-768x768.webp",
+            "promotionPrice": 168,
+            "priceTier1": 196,
+            "priceTier2": 180.92,
+            "priceTier3": 175,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Magnesium 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.059Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.059Z"
+            }
+          }
+        },
+        {
+          "id": "112200",
+          "data": {
+            "name": "Collagen Type II plus curcumin (30cap)",
+            "sku": "112200",
+            "barcode": "8859090058574",
+            "unit": "กล่อง",
+            "unitId": 1002,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Colagen-Type-II-PLus-Curcumin-768x768.webp",
+            "promotionPrice": 720,
+            "priceTier1": 840,
+            "priceTier2": 775.38,
+            "priceTier3": 750,
+            "discountPerPiece": 70,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Collagen Type II plus curcumin (30cap)**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.144Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.144Z"
+            }
+          }
+        },
+        {
+          "id": "112330",
+          "data": {
+            "name": "Calcibo 30's",
+            "sku": "112330",
+            "barcode": "8859090058666",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "60แคฟซูล",
+            "sizeId": 1007,
+            "img": "",
+            "promotionPrice": 210,
+            "priceTier1": 245,
+            "priceTier2": 226.15,
+            "priceTier3": 218.75,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Calcibo 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.216Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.216Z"
+            }
+          }
+        },
+        {
+          "id": "11371030",
+          "data": {
+            "name": "Plu-Kaow Extract Plus Beta Glucan 30's",
+            "sku": "11371030",
+            "barcode": "8859090058956",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "",
+            "promotionPrice": 258,
+            "priceTier1": 301,
+            "priceTier2": 277.85,
+            "priceTier3": 268.75,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Plu-Kaow Extract Plus Beta Glucan 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.281Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.281Z"
+            }
+          }
+        },
+        {
+          "id": "114230",
+          "data": {
+            "name": "K2+D3 30's",
+            "sku": "114230",
+            "barcode": "8859090059434",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/K2D3-768x768.webp",
+            "promotionPrice": 330,
+            "priceTier1": 385,
+            "priceTier2": 355.38,
+            "priceTier3": 343.75,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**K2+D3 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.484Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.484Z"
+            }
+          }
+        },
+        {
+          "id": "114330",
+          "data": {
+            "name": "Biotin Plus Zinc And Horsetail Extract 30's",
+            "sku": "114330",
+            "barcode": "8859090059786",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Biotin-Zinc-Horsetail-Extract-30-Capsules-768x768.webp",
+            "promotionPrice": 210,
+            "priceTier1": 245,
+            "priceTier2": 226.15,
+            "priceTier3": 218.75,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Biotin Plus Zinc And Horsetail Extract 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.553Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.553Z"
+            }
+          }
+        },
+        {
+          "id": "114460",
+          "data": {
+            "name": "Calcium L-Threonate Plus Collagen Type II 60's",
+            "sku": "114460",
+            "barcode": "8859090059793",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "60แคฟซูล",
+            "sizeId": 1007,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Calcium-L-threonate-Collagen-Type-768x768.webp",
+            "promotionPrice": 324,
+            "priceTier1": 378,
+            "priceTier2": 348.92,
+            "priceTier3": 337.5,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Calcium L-Threonate Plus Collagen Type II 60's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.616Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.616Z"
+            }
+          }
+        },
+        {
+          "id": "114530",
+          "data": {
+            "name": "Artichoke and Dandelion 30's",
+            "sku": "114530",
+            "barcode": "8859090059151",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Artichoke-and-Dandelion-768x768.webp",
+            "promotionPrice": 264,
+            "priceTier1": 308,
+            "priceTier2": 284.31,
+            "priceTier3": 275,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Artichoke and Dandelion 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.672Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.672Z"
+            }
+          }
+        },
+        {
+          "id": "114745",
+          "data": {
+            "name": "Amsel Ginkgo Biloba Extract 120 mg. Plus",
+            "sku": "114745",
+            "barcode": "8859090059809",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "45แคฟซูล",
+            "sizeId": 1003,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Ginkgo-Bioba-Extract-120mg-768x768.webp",
+            "promotionPrice": 216,
+            "priceTier1": 252,
+            "priceTier2": 232.62,
+            "priceTier3": 225,
+            "discountPerPiece": 25,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Ginkgo Biloba Extract 120 mg. Plus**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.177Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.177Z"
+            }
+          }
+        },
+        {
+          "id": "114830",
+          "data": {
+            "name": "Amsel Vitamin B Complex 40's",
+            "sku": "114830",
+            "barcode": "8859090059373",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "40แคฟซูล",
+            "sizeId": 1011,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Vitamin-B-Complex-HG-768x768.webp",
+            "promotionPrice": 270,
+            "priceTier1": 315,
+            "priceTier2": 290.77,
+            "priceTier3": 281.25,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Vitamin B Complex 40's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.995Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.995Z"
+            }
+          }
+        },
+        {
+          "id": "114930",
+          "data": {
+            "name": "Sodium Ascorbate Vitamin C 500 mg+Citrus bioflavonoid 30's",
+            "sku": "114930",
+            "barcode": "8859090059816",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Vitamin-C-500-mg-from-Sodium-Ascorbate-Plus-Citrus-Bioflavonoid-768x768.webp",
+            "promotionPrice": 150,
+            "priceTier1": 175,
+            "priceTier2": 161.54,
+            "priceTier3": 156.25,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Sodium Ascorbate Vitamin C 500 mg+Citrus bioflavonoid 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.804Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.804Z"
+            }
+          }
+        },
+        {
+          "id": "115130",
+          "data": {
+            "name": "Gaba Plus L-Theanine 30's",
+            "sku": "115130",
+            "barcode": "8859090059953",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "promotionPrice": 282,
+            "priceTier1": 329,
+            "priceTier2": 303.69,
+            "priceTier3": 293.75,
+            "discountPerPiece": 30,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Gaba Plus L-Theanine 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.531Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T04:06:41.554Z"
+            },
+            "img": ""
+          }
+        },
+        {
+          "id": "115230",
+          "data": {
+            "name": "Magnesium Bisglycinate plus Chamomile 30's",
+            "sku": "115230",
+            "barcode": "8859090059991",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Magnesium-Plus-02-768x768.webp",
+            "promotionPrice": 228,
+            "priceTier1": 266,
+            "priceTier2": 245.54,
+            "priceTier3": 237.5,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Magnesium Bisglycinate plus Chamomile 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.122Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.122Z"
+            }
+          }
+        },
+        {
+          "id": "115760",
+          "data": {
+            "name": "Amsel Vitamin D3 Plus 60's",
+            "sku": "115760",
+            "barcode": "8859090060010",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "60แคฟซูล",
+            "sizeId": 1007,
+            "img": "",
+            "promotionPrice": 192,
+            "priceTier1": 224,
+            "priceTier2": 206.77,
+            "priceTier3": 200,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Vitamin D3 Plus 60's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.200Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.200Z"
+            }
+          }
+        },
+        {
+          "id": "121310",
+          "data": {
+            "name": "Amsel Collagen 5000 (10 Sac)",
+            "sku": "121310",
+            "barcode": "8859090057263",
+            "unit": "กล่อง",
+            "unitId": 1002,
+            "size": "10 ซอง",
+            "sizeId": 1000,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Amsel-Collagen-5000-Plus.webp",
+            "promotionPrice": 192,
+            "priceTier1": 224,
+            "priceTier2": 206.77,
+            "priceTier3": 200,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Powder",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Collagen 5000 (10 Sac)**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.711Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.711Z"
+            }
+          }
+        },
+        {
+          "id": "121510",
+          "data": {
+            "name": "Amsel Collagen Plus Berry 10SAC",
+            "sku": "121510",
+            "barcode": "8859090056945",
+            "unit": "กล่อง",
+            "unitId": 1002,
+            "size": "10 ซอง",
+            "sizeId": 1000,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Amsel-Collagen-Plus-10000-mg.webp",
+            "promotionPrice": 456,
+            "priceTier1": 532,
+            "priceTier2": 491.08,
+            "priceTier3": 475,
+            "discountPerPiece": 50,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Powder",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Collagen Plus Berry 10SAC**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.636Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.636Z"
+            }
+          }
+        },
+        {
+          "id": "121730",
+          "data": {
+            "name": "Peptide&Tripeptide Collagen 5000 30 Sachets",
+            "sku": "121730",
+            "barcode": "8859090057997",
+            "unit": "กล่อง",
+            "unitId": 1002,
+            "size": "30ซอง",
+            "sizeId": 1002,
+            "promotionPrice": 534,
+            "priceTier1": 623,
+            "priceTier2": 575.08,
+            "priceTier3": 556.25,
+            "discountPerPiece": 60,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Powder",
+            "FDA_No": "0",
+            "Markdown": "**Peptide&Tripeptide Collagen 5000 30 Sachets**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.805Z"
+            },
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Amsel-PeptideTri-Peptide-Collagen-5000-mg-768x768.webp",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T04:02:40.839Z"
+            }
+          }
+        },
+        {
+          "id": "121810",
+          "data": {
+            "name": "Fiber Plus Amsel 10SAC",
+            "sku": "121810",
+            "barcode": "8859090057614",
+            "unit": "กล่อง",
+            "unitId": 1002,
+            "size": "10 ซอง",
+            "sizeId": 1000,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/07/Amsel-Fiber-Plus-L-Csyteine-768x768.webp",
+            "promotionPrice": 204,
+            "priceTier1": 238,
+            "priceTier2": 219.69,
+            "priceTier3": 212.5,
+            "discountPerPiece": 20,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Powder",
+            "FDA_No": "0",
+            "Markdown": "**Fiber Plus Amsel 10SAC**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.036Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.036Z"
+            }
+          }
+        },
+        {
+          "id": "121920",
+          "data": {
+            "name": "Nutri D Collagen Peptide&Di Peptide+TypeII 120g",
+            "sku": "121920",
+            "barcode": "8859090059601",
+            "unit": "กระป๋อง",
+            "unitId": 1001,
+            "size": "120กรัม",
+            "sizeId": 3010,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Nutri-D-Collagen-Di-Peptide-Peptide-Plus-Collagen-Type-II-120-768x768.webp",
+            "promotionPrice": 540,
+            "priceTier1": 630,
+            "priceTier2": 581.54,
+            "priceTier3": 562.5,
+            "discountPerPiece": 60,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Powder",
+            "FDA_No": "0",
+            "Markdown": "**Nutri D Collagen Peptide&Di Peptide+TypeII 120g**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.110Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.110Z"
+            }
+          }
+        },
+        {
+          "id": "123410",
+          "data": {
+            "name": "FIBOCOL Amsel 10 SH",
+            "sku": "123410",
+            "barcode": "8859090058659",
+            "unit": "กล่อง",
+            "unitId": 1002,
+            "size": "10 ซอง",
+            "sizeId": 1000,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Amsel-Fibocol.webp",
+            "promotionPrice": 270,
+            "priceTier1": 315,
+            "priceTier2": 290.77,
+            "priceTier3": 281.25,
+            "discountPerPiece": 30,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Powder",
+            "FDA_No": "0",
+            "Markdown": "**FIBOCOL Amsel 10 SH**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.964Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.964Z"
+            }
+          }
+        },
+        {
+          "id": "125030",
+          "data": {
+            "name": "Acerola Chery Plus VitaminC500 30's",
+            "sku": "125030",
+            "barcode": "8859090058536",
+            "unit": "กล่อง",
+            "unitId": 1002,
+            "size": "30ซอง",
+            "sizeId": 1002,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Acerola-Cherry-Plus-Cranberry-Extract-and-Vitamin-C-768x768.webp",
+            "promotionPrice": 252,
+            "priceTier1": 294,
+            "priceTier2": 271.38,
+            "priceTier3": 262.5,
+            "discountPerPiece": 25,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Powder",
+            "FDA_No": "0",
+            "Markdown": "**Acerola Chery Plus VitaminC500 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.887Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:45.887Z"
+            }
+          }
+        },
+        {
+          "id": "130675",
+          "data": {
+            "name": "Amsel Fish Oil Mini Caps 500 mg 75's",
+            "sku": "130675",
+            "barcode": "8859090059519",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "75ซอฟเจล",
+            "sizeId": 3008,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Fish-Oil-Mini-768x768.webp",
+            "promotionPrice": 228,
+            "priceTier1": 266,
+            "priceTier2": 245.54,
+            "priceTier3": 237.5,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Fish Oil Mini Caps 500 mg 75's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.741Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:46.741Z"
+            }
+          }
+        },
+        {
+          "id": "134030",
+          "data": {
+            "name": "Amsel Melon Powder (SOD) 30's",
+            "sku": "134030",
+            "barcode": "8859090058390",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "",
+            "promotionPrice": 450,
+            "priceTier1": 525,
+            "priceTier2": 484.62,
+            "priceTier3": 468.75,
+            "discountPerPiece": 30,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Amsel Melon Powder (SOD) 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.465Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:47.465Z"
+            }
+          }
+        },
+        {
+          "id": "134630",
+          "data": {
+            "name": "Astaxanthin 6 mg. 30's",
+            "sku": "134630",
+            "barcode": "8859090059427",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30ซอฟเจล",
+            "sizeId": 3000,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Astaxanthin-768x768.webp",
+            "promotionPrice": 390,
+            "priceTier1": 455,
+            "priceTier2": 420,
+            "priceTier3": 406.25,
+            "discountPerPiece": 30,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Astaxanthin 6 mg. 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.762Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.762Z"
+            }
+          }
+        },
+        {
+          "id": "137130",
+          "data": {
+            "name": "Quercetin Onion Extract 30's",
+            "sku": "137130",
+            "barcode": "8859090059113",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Quercetin-30-Capsules-768x768.webp",
+            "promotionPrice": 450,
+            "priceTier1": 525,
+            "priceTier2": 484.62,
+            "priceTier3": 468.75,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Quercetin Onion Extract 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.345Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.345Z"
+            }
+          }
+        },
+        {
+          "id": "138130",
+          "data": {
+            "name": "Beta Glucan 30's",
+            "sku": "138130",
+            "barcode": "8859090059090",
+            "unit": "ขวด",
+            "unitId": 1004,
+            "size": "30แคฟซูล",
+            "sizeId": 1004,
+            "img": "https://amselnutraceutical.com/wp-content/uploads/2025/11/Beta-Glucan-768x768.webp",
+            "promotionPrice": 390,
+            "priceTier1": 455,
+            "priceTier2": 420,
+            "priceTier3": 406.25,
+            "discountPerPiece": 15,
+            "stockQuantity": 200,
+            "stockStatus": "active",
+            "categories": "Capsule",
+            "FDA_No": "0",
+            "Markdown": "**Beta Glucan 30's**",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.412Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-13T06:11:48.412Z"
+            }
+          }
+        }
+      ]
+    },
+    "roles": {
+      "count": 8,
+      "documents": [
+        {
+          "id": "6LDzktny620yFyu1wuXg",
+          "data": {
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "name": "Customer.Maker",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "permissions": {
+              "SubmitPO": true,
+              "ReviewPO": false,
+              "CreatePO": true,
+              "EditPO": true,
+              "AdminApprovePO": false,
+              "CustomerApprovePO": false,
+              "EditUser": false,
+              "CustomerRejectPO": false,
+              "EditSubmittedPO": false,
+              "ViewAllPO": false,
+              "ViewOwnPO": true,
+              "AdminRejectPO": false,
+              "AddUser": false
+            }
+          }
+        },
+        {
+          "id": "EgYTxvkj4RNmyZdQksgz",
+          "data": {
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "name": "Amsel.BackOffice",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "permissions": {
+              "EditSubmittedPO": true,
+              "SubmitPO": true,
+              "CreatePO": true,
+              "CustomerApprovePO": true,
+              "AdminApprovePO": true,
+              "EditUser": false,
+              "AddUser": false,
+              "AdminRejectPO": true,
+              "ViewAllPO": true,
+              "EditPO": true,
+              "CustomerRejectPO": true,
+              "ReviewPO": true,
+              "ViewOwnPO": false
+            }
+          }
+        },
+        {
+          "id": "Uy2rSH4ZJ7ajCfNt6w5m",
+          "data": {
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "name": "Amsel.Viewer",
+            "permissions": {
+              "ReviewPO": false,
+              "AdminRejectPO": false,
+              "CustomerRejectPO": false,
+              "ViewAllPO": true,
+              "EditSubmittedPO": false,
+              "EditUser": false,
+              "AdminApprovePO": false,
+              "AddUser": false,
+              "CustomerApprovePO": false,
+              "CreatePO": false,
+              "ViewOwnPO": false,
+              "SubmitPO": false,
+              "EditPO": false
+            }
+          }
+        },
+        {
+          "id": "f1HecZxB1BmLdLFwwXrK",
+          "data": {
+            "name": "Amsel.Approver",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "permissions": {
+              "AdminApprovePO": true,
+              "AdminRejectPO": true,
+              "ReviewPO": false,
+              "CustomerApprovePO": false,
+              "ViewOwnPO": false,
+              "CreatePO": false,
+              "EditPO": false,
+              "CustomerRejectPO": false,
+              "ViewAllPO": true,
+              "AddUser": false,
+              "EditUser": false,
+              "SubmitPO": false,
+              "EditSubmittedPO": false
+            }
+          }
+        },
+        {
+          "id": "qQqqmCkkIo8ApfKKwaIZ",
+          "data": {
+            "permissions": {
+              "CustomerApprovePO": true,
+              "EditSubmittedPO": false,
+              "AddUser": false,
+              "CreatePO": false,
+              "EditUser": false,
+              "EditPO": false,
+              "ReviewPO": true,
+              "CustomerRejectPO": true,
+              "AdminRejectPO": false,
+              "ViewAllPO": false,
+              "AdminApprovePO": false,
+              "ViewOwnPO": true,
+              "SubmitPO": false
+            },
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "name": "Customer.Approver",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            }
+          }
+        },
+        {
+          "id": "qt9F7kz9Rzl5gX2fvffT",
+          "data": {
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "permissions": {
+              "AddUser": false,
+              "ReviewPO": false,
+              "EditPO": false,
+              "CustomerRejectPO": false,
+              "SubmitPO": false,
+              "ViewOwnPO": false,
+              "EditSubmittedPO": true,
+              "AdminApprovePO": false,
+              "AdminRejectPO": false,
+              "ViewAllPO": true,
+              "CreatePO": false,
+              "EditUser": false,
+              "CustomerApprovePO": false
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "name": "Amsel.Editor"
+          }
+        },
+        {
+          "id": "tgCtAyuLYKOZMSiDojKk",
+          "data": {
+            "name": "Customer.Viewer",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "permissions": {
+              "ViewOwnPO": true,
+              "CustomerApprovePO": false,
+              "ReviewPO": false,
+              "AdminApprovePO": false,
+              "SubmitPO": false,
+              "CustomerRejectPO": false,
+              "EditSubmittedPO": false,
+              "CreatePO": false,
+              "AdminRejectPO": false,
+              "AddUser": false,
+              "EditUser": false,
+              "ViewAllPO": false,
+              "EditPO": false
+            }
+          }
+        },
+        {
+          "id": "vGKIIyEGyw7efIK2tyT0",
+          "data": {
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-22T03:01:56.686Z"
+            },
+            "permissions": {
+              "AdminApprovePO": false,
+              "SubmitPO": false,
+              "AddUser": true,
+              "CustomerApprovePO": false,
+              "EditSubmittedPO": false,
+              "ViewAllPO": false,
+              "CustomerRejectPO": false,
+              "EditPO": false,
+              "ViewOwnPO": false,
+              "AdminRejectPO": false,
+              "ReviewPO": false,
+              "CreatePO": false,
+              "EditUser": true
+            },
+            "name": "Amsel.ITAdmin"
+          }
+        }
+      ]
+    },
+    "users": {
+      "count": 7,
+      "documents": [
+        {
+          "id": "F9VSpqlEjBY5R7il2Mif",
+          "data": {
+            "firstName": "Admin",
+            "lastName": "System",
+            "email": "admin@amsel.com",
+            "tier": "PLATINUM",
+            "registerCode": null,
+            "isBackoffice": true,
+            "isActive": true,
+            "pharmacyId": null,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:47:47.056Z"
+            },
+            "password": "$2b$10$0R4orfOq13xhyKSKbeI55Oj9UrC7tik/v/CK8HGpEkjqssk249WIS",
+            "phoneNumber": "+66800000001",
+            "status": "ACTIVE",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T01:59:39.744Z"
+            },
+            "roles": [
+              "Amsel.ITAdmin",
+              "Amsel.BackOffice",
+              "Amsel.Approver"
+            ]
+          }
+        },
+        {
+          "id": "KofbWn9debBREL9rBz7K",
+          "data": {
+            "lineUserId": "U4f7faa91f89a6edc4c2898de282a15cd",
+            "firstName": "Patsawat",
+            "lastName": "Rodmanee",
+            "phoneNumber": "+66912345678",
+            "email": "test@example.com",
+            "registerCode": "0101314",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:21:26.533Z"
+            },
+            "pharmacyId": "2544",
+            "pharmacy": "บริษัท ซูรูฮะ(ประเทศไทย) จำกัด ",
+            "status": "ACTIVE",
+            "roles": [
+              "Customer.Viewer",
+              "Customer.Approver",
+              "Customer.Maker"
+            ],
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:49:59.055Z"
+            }
+          }
+        },
+        {
+          "id": "On9PgbVZXOwah7cFnahF",
+          "data": {
+            "passwordHistory": [],
+            "lockUntil": null,
+            "phoneNumber": null,
+            "registerCode": null,
+            "lastLoginAttempt": null,
+            "password": "$2b$12$fFB6jIY558iiBPs3mERE2OFFOGS8fNHZFM8IwSQhv/xUyaM.jVOQG",
+            "lastName": "zz",
+            "status": "ACTIVE",
+            "isActive": true,
+            "email": "ykg@amsel.com",
+            "pharmacyId": null,
+            "tier": "PLATINUM",
+            "firstName": "ykg",
+            "lastLoginAt": null,
+            "loginAttempts": 0,
+            "isBackoffice": true,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:13:44.901Z"
+            },
+            "passwordChangedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:13:44.901Z"
+            },
+            "roles": [
+              "Amsel.Viewer",
+              "Amsel.ITAdmin",
+              "Amsel.BackOffice"
+            ],
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-09T04:52:33.696Z"
+            }
+          }
+        },
+        {
+          "id": "U8iDQ8kxV5vduIxaTjOj",
+          "data": {
+            "lineUserId": "U492dbc130a75b581d131c3ee1c61c0f2",
+            "firstName": "Suphakit",
+            "lastName": "Ranphol",
+            "phoneNumber": "+66999999999",
+            "email": "supakit0920@gmail.com",
+            "registerCode": "0101314",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-12T04:00:07.855Z"
+            },
+            "pharmacyId": "2544",
+            "pharmacy": "บริษัท ซูรูฮะ(ประเทศไทย) จำกัด ",
+            "status": "ACTIVE",
+            "roles": [
+              "Customer.Viewer",
+              "Customer.Maker",
+              "Customer.Approver"
+            ],
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-14T02:16:31.185Z"
+            }
+          }
+        },
+        {
+          "id": "bgDl1omDy2I9FTn9JNY8",
+          "data": {
+            "lineUserId": null,
+            "firstName": "Support",
+            "lastName": "Team",
+            "email": "support@amsel.com",
+            "tier": "GOLD",
+            "registerCode": null,
+            "roles": [
+              "Amsel.Viewer"
+            ],
+            "isBackoffice": true,
+            "isActive": true,
+            "pharmacyId": null,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-15T09:47:47.056Z"
+            },
+            "password": "$2b$10$CPLbjf6jiHXekBamtLDn5OT6S7agg/3KLjNN3XT3JlWnZkQitN9JG",
+            "phoneNumber": "+66800000002",
+            "status": "ACTIVE",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2025-12-16T03:09:56.925Z"
+            }
+          }
+        },
+        {
+          "id": "lcEhxS3E8NTX8VHG21co",
+          "data": {
+            "isBackoffice": true,
+            "tier": "PLATINUM",
+            "pharmacyId": null,
+            "phoneNumber": null,
+            "password": "$2b$10$lyBY1uyNahGbPA6O9zO9X.Y1XqtMErkqW8YoTNfdSpedyPvX9QvGa",
+            "isActive": true,
+            "lastName": "Ranphol",
+            "email": "supakit0921@gmail.com",
+            "registerCode": null,
+            "firstName": "Suphakit",
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-06T03:00:01.408Z"
+            },
+            "roles": [
+              "Amsel.Viewer"
+            ],
+            "status": "ACTIVE",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-06T03:28:27.578Z"
+            }
+          }
+        },
+        {
+          "id": "th9fn8tmFLEAJQnn0fG7",
+          "data": {
+            "isBackoffice": true,
+            "createdAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-05T06:11:04.787Z"
+            },
+            "tier": "PLATINUM",
+            "password": "$2b$10$K2POs3kx5psMs4U/3uKHS.wxbFcE96AsHGTm5EdcA/Tfx3n9top/y",
+            "firstName": "Thanajade",
+            "lineUserId": null,
+            "isActive": true,
+            "phoneNumber": null,
+            "email": "thanajade.d@amsel.co.th",
+            "updatedAt": {
+              "_type": "Timestamp",
+              "_value": "2026-01-05T06:11:04.787Z"
+            },
+            "registerCode": null,
+            "status": "ACTIVE",
+            "roles": [
+              "Amsel.ITAdmin"
+            ],
+            "lastName": "Dechananthachai"
+          }
+        }
+      ]
+    }
+  }
+}

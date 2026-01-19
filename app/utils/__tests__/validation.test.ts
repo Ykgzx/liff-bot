@@ -64,6 +64,20 @@ describe('Input Validation', () => {
       expect(validateMessageInput('你好')).toBe(true);
       expect(validateMessageInput('café')).toBe(true);
     });
+
+    // Test Thai language
+    test('should accept Thai language text', () => {
+      expect(validateMessageInput('สวัสดี')).toBe(true);
+      expect(validateMessageInput('อยากได้ครีม')).toBe(true);
+      expect(validateMessageInput('ขอบคุณครับ')).toBe(true);
+    });
+
+    // Test Thai language
+    test('should accept Thai language text', () => {
+      expect(validateMessageInput('สวัสดี')).toBe(true);
+      expect(validateMessageInput('อยากได้ครีม')).toBe(true);
+      expect(validateMessageInput('ขอบคุณครับ')).toBe(true);
+    });
   });
 
   describe('getValidationErrorMessage', () => {
