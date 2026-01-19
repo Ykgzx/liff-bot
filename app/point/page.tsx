@@ -21,6 +21,7 @@ export default function PointPage() {
     const initLiff = async () => {
       const liffId = process.env.NEXT_PUBLIC_LIFF_ID;
       if (!liffId) {
+        console.error('NEXT_PUBLIC_LIFF_ID is missing in .env.local');
         setMessage({ type: 'error', text: 'ไม่พบ LIFF ID — ตรวจสอบ .env.local' });
         return;
       }
@@ -30,15 +31,25 @@ export default function PointPage() {
         await liff.init({ liffId });
 
         if (!liff.isLoggedIn()) {
+          console.log('User not logged in. Redirecting to LINE login...');
           liff.login();
           return;
         }
 
         const prof = await liff.getProfile();
+        console.log('LINE Profile:', prof); // 🔍 ดีบั๊ก: ตรวจสอบ userId
+
+        // 🔒 ตรวจสอบว่าได้ userId จริงหรือไม่
+        if (!prof?.userId || typeof prof.userId !== 'string') {
+          console.error('Invalid or missing userId from LINE profile');
+          setMessage({ type: 'error', text: 'ไม่สามารถรับข้อมูลผู้ใช้จาก LINE ได้' });
+          return;
+        }
+
         setProfile(prof);
         loadPoints(prof.userId);
       } catch (err) {
-        console.error('LIFF error:', err);
+        console.error('LIFF initialization error:', err);
         setMessage({ type: 'error', text: 'ไม่สามารถเชื่อมต่อกับ LINE ได้' });
       }
     };
@@ -47,12 +58,27 @@ export default function PointPage() {
   }, []);
 
   const loadPoints = async (lineId: string) => {
+    console.log('Fetching points for lineId:', lineId); // 🔍 ดีบั๊ก: ดูว่าส่งอะไรไป
+
+    if (!lineId || typeof lineId !== 'string') {
+      setMessage({ type: 'error', text: 'ไม่มีข้อมูลผู้ใช้' });
+      return;
+    }
+
     try {
-      const res = await fetch(`/api/points?lineId=${encodeURIComponent(lineId)}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const encodedLineId = encodeURIComponent(lineId);
+      const res = await fetch(`/api/points?lineId=${encodedLineId}`);
       const data = await res.json();
+
+      if (!res.ok) {
+        console.error('API error response:', data);
+        throw new Error(data.message || `HTTP ${res.status}`);
+      }
+
       if (data.success) {
         setPoints(data.totalPoints);
+      } else {
+        setMessage({ type: 'error', text: data.message || 'ไม่สามารถโหลดแต้มได้' });
       }
     } catch (err) {
       console.error('Failed to load points:', err);
@@ -97,7 +123,7 @@ export default function PointPage() {
   return (
     <div className="p-4 pt-20 max-w-md mx-auto">
       <h1 className="text-2xl font-bold text-gray-800">คะแนนสะสม</h1>
-      
+
       {profile ? (
         <p className="mt-1 text-gray-600">สวัสดี, {profile.displayName}</p>
       ) : (

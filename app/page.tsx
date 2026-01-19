@@ -80,7 +80,7 @@ export default function WelcomePage() {
 
   if (isLoggedIn) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center px-4 pb-6">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col items-center px-4 pb-24">
         {/* Header */}
         <div className="w-full max-w-md pt-8 text-center">
           <div className="inline-block mb-4">
@@ -88,8 +88,8 @@ export default function WelcomePage() {
               <span className="text-2xl text-white">👋</span>
             </div>
           </div>
-          <h1 className="text-2xl font-bold text-gray-800">ยินดีต้อนรับกลับ!</h1>
-          <p className="text-gray-600 mt-1">คุณเข้าสู่ระบบเรียบร้อยแล้ว</p>
+          <h1 className="text-2xl font-bold text-gray-800">ยินดีต้อนรับ!</h1>
+          <p className="text-gray-600 mt-1">พร้อมใช้งานแล้ว เริ่มต้นได้เลย</p>
         </div>
 
         {/* Quick Stats / Summary */}
@@ -104,7 +104,7 @@ export default function WelcomePage() {
           </div>
         </div>
 
-        {/* Action Cards */}
+        {/* Action Cards - เปลี่ยนเป็น 3 ปุ่มที่สำคัญ */}
         <div className="w-full max-w-md mt-6 space-y-3">
           <button
             onClick={() => router.push('/campaign')}
@@ -123,32 +123,32 @@ export default function WelcomePage() {
           </button>
 
           <button
-            onClick={() => router.push('/point')}
-            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-100 hover:shadow-md transition"
+            onClick={() => router.push('/ai-chat')}
+            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 hover:shadow-md transition"
           >
             <div className="flex items-center">
-              <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center mr-3">
-                <span className="text-emerald-700">⭐</span>
+              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
+                <span className="text-blue-700">🤖</span>
               </div>
               <div className="text-left">
-                <div className="font-medium text-gray-800">คะแนนสะสม</div>
-                <div className="text-xs text-gray-500">แลกของรางวัล</div>
+                <div className="font-medium text-gray-800">คุยกับ AI</div>
+                <div className="text-xs text-gray-500">ถามคำถามได้ทุกเรื่อง</div>
               </div>
             </div>
             <span className="text-gray-400">→</span>
           </button>
 
           <button
-            onClick={() => router.push('/noti')}
-            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 hover:shadow-md transition"
+            onClick={() => router.push('/rewards')}
+            className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100 hover:shadow-md transition"
           >
             <div className="flex items-center">
-              <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-3">
-                <span className="text-blue-700">🔔</span>
+              <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center mr-3">
+                <span className="text-purple-700">🏆</span>
               </div>
               <div className="text-left">
-                <div className="font-medium text-gray-800">การแจ้งเตือน</div>
-                <div className="text-xs text-gray-500">ดูข้อความล่าสุด</div>
+                <div className="font-medium text-gray-800">การเงินส่วนตัว</div>
+                <div className="text-xs text-gray-500">ดูสถานะการเงิน</div>
               </div>
             </div>
             <span className="text-gray-400">→</span>
