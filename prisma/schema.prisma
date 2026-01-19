@@ -1,0 +1,9 @@
+// Firestore schema reference (for documentation only)
+// This project uses Firebase Admin SDK directly instead of Prisma ORM
+// because Prisma does not natively support Firestore.
+// 
+// Collections:
+// - User: { id, lineId (unique), name, picture, totalPoints, createdAt }
+// - Code: { id, code (unique), points, usedBy, usedAt }
+// - Point: { id, lineId, points, type, description, date }
+

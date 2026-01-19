@@ -1,63 +1,76 @@
 // app/api/redeem/route.ts
-import { getDb } from "@/lib/mongodb";
+import { getFirestoreDB } from '@/lib/prisma';
 
 export async function POST(req: Request) {
   try {
+    const db = getFirestoreDB();
     const { lineId, code } = await req.json();
 
-    if (!lineId || typeof lineId !== "string" || !code || typeof code !== "string") {
-      return Response.json({ success: false, message: "ข้อมูลไม่ถูกต้อง" }, { status: 400 });
+    if (!lineId || typeof lineId !== 'string' || !code || typeof code !== 'string') {
+      return Response.json({ success: false, message: 'ข้อมูลไม่ถูกต้อง' }, { status: 400 });
     }
 
     const cleanCode = code.trim().toUpperCase();
-    const db = await getDb();
 
-    const data = await db.collection("codes").findOne({ code: cleanCode });
-    if (!data) {
-      return Response.json({ success: false, message: "รหัสไม่ถูกต้อง" }, { status: 400 });
-    }
-    if (data.usedBy) {
-      return Response.json({ success: false, message: "รหัสนี้ถูกใช้ไปแล้ว" }, { status: 400 });
-    }
+    const codeDoc = await db.collection('Code').where('code', '==', cleanCode).limit(1).get();
+    const codeData = codeDoc.docs[0]?.data();
 
-    const points = data.points;
-    if (typeof points !== "number" || points <= 0 || !Number.isInteger(points)) {
-      return Response.json({ success: false, message: "ข้อมูลรหัสไม่ถูกต้อง" }, { status: 500 });
+    if (!codeData) {
+      return Response.json({ success: false, message: 'รหัสไม่ถูกต้อง' }, { status: 400 });
+    }
+    if (codeData.usedBy) {
+      return Response.json({ success: false, message: 'รหัสนี้ถูกใช้ไปแล้ว' }, { status: 400 });
     }
 
-    // บันทึกประวัติ
-    await db.collection("points").insertOne({
+    const points = codeData.points;
+    if (typeof points !== 'number' || points <= 0 || !Number.isInteger(points)) {
+      return Response.json({ success: false, message: 'ข้อมูลรหัสไม่ถูกต้อง' }, { status: 500 });
+    }
+
+    const batch = db.batch();
+
+    // Add point history
+    const pointRef = db.collection('Point').doc();
+    batch.set(pointRef, {
+      id: pointRef.id,
       lineId,
       points,
-      type: "earn",
-      description: "Claim Code",
+      type: 'earn',
+      description: 'Claim Code',
       date: new Date(),
     });
 
-    // อัปเดตแต้มผู้ใช้
-    await db.collection("user").updateOne(
-      { lineId },
-      {
-        $setOnInsert: {
-          name: "",
-          picture: "",
-          totalPoints: 0,
-          createdAt: new Date(),
-        },
-        $inc: { totalPoints: points },
-      },
-      { upsert: true }
-    );
+    // Get or create user and update totalPoints
+    const userQuery = await db.collection('User').where('lineId', '==', lineId).limit(1).get();
+    if (userQuery.docs.length > 0) {
+      const userRef = userQuery.docs[0].ref;
+      batch.update(userRef, {
+        totalPoints: (userQuery.docs[0].data().totalPoints || 0) + points,
+      });
+    } else {
+      const userRef = db.collection('User').doc();
+      batch.set(userRef, {
+        id: userRef.id,
+        lineId,
+        name: '',
+        picture: '',
+        totalPoints: points,
+        createdAt: new Date(),
+      });
+    }
 
-    // ทำเครื่องหมายว่าใช้แล้ว
-    await db.collection("codes").updateOne(
-      { code: cleanCode },
-      { $set: { usedBy: lineId, usedAt: new Date() } }
-    );
+    // Mark code as used
+    const codeRef = codeDoc.docs[0].ref;
+    batch.update(codeRef, {
+      usedBy: lineId,
+      usedAt: new Date(),
+    });
+
+    await batch.commit();
 
     return Response.json({ success: true, message: `คุณได้รับ ${points} แต้ม` });
   } catch (error) {
-    console.error("Error in /api/redeem:", error);
-    return Response.json({ success: false, message: "เกิดข้อผิดพลาดภายในระบบ" }, { status: 500 });
+    console.error('Error in /api/redeem:', error);
+    return Response.json({ success: false, message: 'เกิดข้อผิดพลาดภายในระบบ' }, { status: 500 });
   }
 }

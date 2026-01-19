@@ -1,6 +1,7 @@
 import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 import { NextRequest } from 'next/server';
+import { searchFAQ } from '@/app/utils/faqSearch';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -17,20 +18,6 @@ export async function POST(req: NextRequest) {
         code: 'INVALID_REQUEST'
       }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-
-    // Validate OpenAI API key with better error handling
-    const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey || apiKey === 'your_openai_api_key_here') {
-      console.error('OpenAI API key not configured');
-      return new Response(JSON.stringify({
-        error: 'Service configuration error',
-        message: 'AI service is not properly configured',
-        code: 'SERVICE_CONFIG_ERROR'
-      }), {
-        status: 500,
         headers: { 'Content-Type': 'application/json' }
       });
     }
@@ -71,11 +58,93 @@ export async function POST(req: NextRequest) {
         });
       }
     }
-
     // Rate limiting check (basic implementation)
     const userAgent = req.headers.get('user-agent') || 'unknown';
     const rateLimitKey = `rate_limit_${userAgent}`;
+
+    // Get the last user message
+    const lastUserMessage = [...messages].reverse().find((m: any) => m.role === 'user') || messages[messages.length - 1];
     
+    // Check FAQ first for electronics-related questions
+    const faqMatch = await searchFAQ(lastUserMessage.content);
+    if (faqMatch) {
+      // Stream FAQ answer
+      const stream = new ReadableStream({
+        start(controller) {
+          const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: faqMatch.answer })}\n`;
+          controller.enqueue(new TextEncoder().encode(payload));
+          controller.close();
+        }
+      });
+
+      return new Response(stream, {
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      });
+    }
+
+    // If Dialogflow environment is configured, proxy to Dialogflow REST API
+    const dialogflowProjectId = process.env.DIALOGFLOW_PROJECT_ID;
+    const dialogflowToken = process.env.DIALOGFLOW_TOKEN; // Bearer token (OAuth2 access token)
+
+    if (dialogflowProjectId && dialogflowToken) {
+      const sessionId = req.headers.get('x-session-id') || `session-${Date.now()}`;
+
+      const url = `https://dialogflow.googleapis.com/v2/projects/${encodeURIComponent(dialogflowProjectId)}/agent/sessions/${encodeURIComponent(sessionId)}:detectIntent`;
+
+      const body = {
+        queryInput: {
+          text: {
+            text: lastUserMessage.content,
+            languageCode: 'th'
+          }
+        }
+      };
+
+      const dfRes = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${dialogflowToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      });
+
+      if (!dfRes.ok) {
+        // Let outer catch handle Response errors
+        throw dfRes;
+      }
+
+      const dfJson = await dfRes.json();
+      const fulfillment = dfJson?.queryResult?.fulfillmentText || '';
+
+      // Stream a single text-delta payload so the client can consume like before
+      const stream = new ReadableStream({
+        start(controller) {
+          const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: fulfillment })}\n`;
+          controller.enqueue(new TextEncoder().encode(payload));
+          controller.close();
+        }
+      });
+
+      return new Response(stream, {
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+      });
+    }
+
+    // Fallback: use OpenAI streaming when OpenAI key is configured
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey || apiKey === 'your_openai_api_key_here') {
+      console.error('OpenAI API key not configured and no Dialogflow config available');
+      return new Response(JSON.stringify({
+        error: 'Service configuration error',
+        message: 'AI service is not properly configured',
+        code: 'SERVICE_CONFIG_ERROR'
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     // Create the streaming response with enhanced error handling
     const result = await streamText({
       model: openai('gpt-3.5-turbo'),
