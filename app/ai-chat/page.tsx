@@ -233,22 +233,42 @@ export default function ChatPage() {
         const lines = chunk.split('\n');
 
         for (const line of lines) {
+          if (!line.trim()) continue;
+
+          // Handle custom format: 0:{"type":"text-delta","textDelta":"..."}
           if (line.startsWith('0:')) {
             try {
               const data = JSON.parse(line.slice(2));
               if (data.type === 'text-delta' && data.textDelta) {
                 assistantContent += data.textDelta;
-                setMessages(prev =>
-                  prev.map(msg =>
-                    msg.id === assistantMessage.id
-                      ? { ...msg, content: assistantContent }
-                      : msg
-                  )
-                );
               }
             } catch (e) {
-              // Ignore parsing errors for partial chunks
+              // Try as plain text (Vercel AI SDK format)
+              const textContent = line.slice(2).replace(/^"|"$/g, '');
+              if (textContent) {
+                assistantContent += textContent;
+              }
             }
+          }
+          // Handle Vercel AI SDK text stream format
+          else if (line.startsWith('0:"')) {
+            try {
+              const textContent = JSON.parse(line.slice(2));
+              assistantContent += textContent;
+            } catch (e) {
+              // Ignore parsing errors
+            }
+          }
+
+          // Update message content
+          if (assistantContent) {
+            setMessages(prev =>
+              prev.map(msg =>
+                msg.id === assistantMessage.id
+                  ? { ...msg, content: assistantContent }
+                  : msg
+              )
+            );
           }
         }
       }
