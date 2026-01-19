@@ -2,6 +2,7 @@ import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
 import { NextRequest } from 'next/server';
 import { searchFAQ } from '@/app/utils/faqSearch';
+import { processConversationalMessage } from '@/app/utils/conversationalFlow';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -82,6 +83,43 @@ export async function POST(req: NextRequest) {
       });
     }
 
+    // Check if this is a product consultation conversation
+    // Use local conversational flow for product recommendations
+    const conversationLower = lastUserMessage.content.toLowerCase();
+    const isProductRelated = 
+      conversationLower.includes('ครีม') || 
+      conversationLower.includes('สกินแคร์') ||
+      conversationLower.includes('ผลิตภัณฑ์') ||
+      conversationLower.includes('ผิว') ||
+      conversationLower.includes('เนื้อ') ||
+      conversationLower.includes('ได้') ||
+      conversationLower.includes('อยาก');
+
+    if (isProductRelated) {
+      try {
+        const { response } = processConversationalMessage(
+          lastUserMessage.content,
+          messages.map((m: any) => ({ role: m.role, content: m.content }))
+        );
+
+        // Stream conversational response
+        const stream = new ReadableStream({
+          start(controller) {
+            const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: response })}\n`;
+            controller.enqueue(new TextEncoder().encode(payload));
+            controller.close();
+          }
+        });
+
+        return new Response(stream, {
+          headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
+      } catch (e) {
+        console.error('Error in conversational flow:', e);
+        // Fall through to external AI if conversation processing fails
+      }
+    }
+
     // If Dialogflow environment is configured, proxy to Dialogflow REST API
     const dialogflowProjectId = process.env.DIALOGFLOW_PROJECT_ID;
     const dialogflowToken = process.env.DIALOGFLOW_TOKEN; // Bearer token (OAuth2 access token)
@@ -157,8 +195,27 @@ export async function POST(req: NextRequest) {
     }
 
     // Create the streaming response with enhanced error handling
+    // Add system prompt for conversational flow with clarifying questions
+    const systemPrompt = `You are a helpful product consultant assistant for an electronics store. 
+Your role is to help customers find the perfect products by asking clarifying questions based on their needs.
+
+Guidelines:
+1. Listen carefully to what the customer wants
+2. Ask one or two clarifying questions at a time to narrow down their needs
+3. Consider factors like: product type, skin type (if relevant), budget, features needed, brand preference
+4. Be friendly, professional, and concise
+5. Always respond in Thai language
+6. Once you have enough information, recommend the best products
+
+Current conversation context:
+- Total messages exchanged: ${messages.length}
+- Customer's stated needs: Analyze previous messages to understand what they're looking for
+
+Remember to ask follow-up questions to better understand their requirements before making recommendations.`;
+
     const result = await streamText({
       model: openai('gpt-3.5-turbo'),
+      system: systemPrompt,
       messages: messages.map((message: any) => ({
         role: message.role,
         content: message.content,

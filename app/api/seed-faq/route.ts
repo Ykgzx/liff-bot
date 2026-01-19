@@ -3,8 +3,9 @@ import { searchFAQ } from '@/app/utils/faqSearch';
 /**
  * API endpoint to seed electronics FAQ
  * POST /api/seed-faq
+ * POST /api/seed-faq?reseed=true (delete old data first)
  * 
- * This is a one-time setup endpoint to populate Firestore with electronics Q&A pairs
+ * This is a one-time setup endpoint to populate Firestore with Thai electronics Q&A pairs
  */
 export async function POST(req: Request) {
   try {
@@ -19,6 +20,15 @@ export async function POST(req: Request) {
       );
     }
 
+    const url = new URL(req.url);
+    const reseed = url.searchParams.get('reseed') === 'true';
+
+    // Delete old FAQ if reseed is requested
+    if (reseed) {
+      const { deleteAllFAQ } = await import('@/app/utils/deleteFAQ');
+      await deleteAllFAQ();
+    }
+
     // Import and run the seeding function
     const { seedElectronicsFAQ } = await import('@/app/utils/seedFAQ');
     const result = await seedElectronicsFAQ();
@@ -26,7 +36,7 @@ export async function POST(req: Request) {
     return new Response(
       JSON.stringify({
         success: true,
-        message: `Successfully seeded ${result.count} electronics FAQs`,
+        message: `Successfully seeded ${result.count} Thai electronics FAQs`,
         data: result,
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
