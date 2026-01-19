@@ -11,6 +11,7 @@ export interface FAQ {
 /**
  * Search FAQ collection for matching questions/answers
  * Returns the best matching answer if similarity score exceeds threshold
+ * Returns null if Firestore not configured or no match found
  */
 export async function searchFAQ(query: string): Promise<FAQ | null> {
   try {
@@ -62,6 +63,10 @@ export async function searchFAQ(query: string): Promise<FAQ | null> {
 
     return null;
   } catch (error) {
+    // Silently fail if Firestore not configured - will fall back to external AI
+    if (error instanceof Error && error.message.includes('Firestore not configured')) {
+      return null;
+    }
     console.error('Error searching FAQ:', error);
     return null;
   }

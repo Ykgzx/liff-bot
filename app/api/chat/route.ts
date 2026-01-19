@@ -133,15 +133,26 @@ export async function POST(req: NextRequest) {
 
     // Fallback: use OpenAI streaming when OpenAI key is configured
     const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey || apiKey === 'your_openai_api_key_here') {
-      console.error('OpenAI API key not configured and no Dialogflow config available');
-      return new Response(JSON.stringify({
-        error: 'Service configuration error',
-        message: 'AI service is not properly configured',
-        code: 'SERVICE_CONFIG_ERROR'
-      }), {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' }
+    const hasValidOpenAI = apiKey && apiKey !== 'your_openai_api_key_here';
+
+    if (!hasValidOpenAI) {
+      // No external AI service configured
+      // Return a helpful message with setup instructions
+      const helpMessage = `ขออภัย ระบบ AI ยังไม่ได้รับการตั้งค่า กรุณาตั้งค่าให้หนึ่งในนี้:\n\n` +
+        `1. OpenAI: ตั้งค่า OPENAI_API_KEY ใน .env\n` +
+        `2. Dialogflow: ตั้งค่า DIALOGFLOW_PROJECT_ID และ DIALOGFLOW_TOKEN\n\n` +
+        `อย่างไรก็ตาม ฉันสามารถตอบคำถามจากฐานข้อมูล FAQ เกี่ยวกับสินค้าอิเล็กทรอนิกส์ได้`;
+      
+      const stream = new ReadableStream({
+        start(controller) {
+          const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: helpMessage })}\n`;
+          controller.enqueue(new TextEncoder().encode(payload));
+          controller.close();
+        }
+      });
+
+      return new Response(stream, {
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' }
       });
     }
 
