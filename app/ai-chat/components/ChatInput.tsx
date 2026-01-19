@@ -88,7 +88,7 @@ export default function ChatInput({
   const isSubmitDisabled = isLoading || !isInputValid;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 shadow-lg z-50">
+    <div className="fixed bottom-16 left-0 right-0 bg-white border-t border-gray-200 px-4 py-3 shadow-lg z-50">
       <form onSubmit={handleSubmit} className="flex items-end space-x-3">
         {/* Input Field */}
         <div className="flex-1 relative">
@@ -101,10 +101,10 @@ export default function ChatInput({
             onBlur={() => setIsFocused(false)}
             placeholder={UI_CONFIG.INPUT_PLACEHOLDER}
             className={`w-full px-4 py-3 border rounded-2xl resize-none focus:outline-none text-sm transition-all duration-200 ${isFocused
-                ? 'border-indigo-500 ring-2 ring-indigo-200'
-                : showValidationError && validationError
-                  ? 'border-red-500 ring-2 ring-red-200'
-                  : 'border-gray-300 hover:border-gray-400'
+              ? 'border-indigo-500 ring-2 ring-indigo-200'
+              : showValidationError && validationError
+                ? 'border-red-500 ring-2 ring-red-200'
+                : 'border-gray-300 hover:border-gray-400'
               } ${isLoading ? 'bg-gray-50' : 'bg-white'}`}
             rows={1}
             style={{
@@ -135,8 +135,8 @@ export default function ChatInput({
           type="submit"
           disabled={isSubmitDisabled}
           className={`px-4 py-3 rounded-2xl font-medium text-sm transition-all duration-200 flex items-center justify-center min-w-[52px] ${isSubmitDisabled
-              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-              : 'bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 shadow-md hover:shadow-lg'
+            ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            : 'bg-indigo-600 text-white hover:bg-indigo-700 active:scale-95 shadow-md hover:shadow-lg'
             }`}
           aria-label={isLoading ? 'Sending message...' : 'Send message'}
         >
