@@ -8,6 +8,7 @@ export const maxDuration = 30;
 export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
+    console.log('Received messages:', messages?.length);
 
     // Request validation
     if (!messages || !Array.isArray(messages)) {
@@ -21,37 +22,47 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // Message format validation
-    for (const [index, message] of messages.entries()) {
-      if (!message.role || !message.content) {
-        return new Response(JSON.stringify({
-          error: 'Invalid message format',
-          message: `Message at index ${index} is missing role or content`,
-          code: 'INVALID_MESSAGE_FORMAT'
-        }), {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' }
-        });
-      }
+    // Filter and validate messages
+    const validMessages = messages.filter((msg: any) =>
+      msg &&
+      msg.role &&
+      typeof msg.content === 'string' &&
+      msg.content.trim().length > 0 &&
+      ['user', 'assistant', 'system'].includes(msg.role)
+    );
 
-      if (!['user', 'assistant', 'system'].includes(message.role)) {
-        return new Response(JSON.stringify({
-          error: 'Invalid message role',
-          message: `Message at index ${index} has invalid role: ${message.role}`,
-          code: 'INVALID_MESSAGE_ROLE'
-        }), {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' }
-        });
-      }
+    console.log('Valid messages after filter:', validMessages.length);
+
+    if (validMessages.length === 0) {
+      return new Response(JSON.stringify({
+        error: 'No valid messages',
+        message: 'At least one valid message is required',
+        code: 'NO_VALID_MESSAGES'
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
     }
 
     // Get the last user message
-    const lastUserMessage = [...messages].reverse().find((m: any) => m.role === 'user') || messages[messages.length - 1];
+    const lastUserMessage = [...validMessages].reverse().find((m: any) => m.role === 'user');
+    if (!lastUserMessage) {
+      return new Response(JSON.stringify({
+        error: 'No user message',
+        message: 'At least one user message is required',
+        code: 'NO_USER_MESSAGE'
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    console.log('Last user message:', lastUserMessage.content.substring(0, 50));
 
     // Check API key
     const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
     if (!apiKey) {
+      console.error('Missing GOOGLE_GENERATIVE_AI_API_KEY');
       const helpMessage = `ขออภัย ระบบ AI ยังไม่ได้รับการตั้งค่า API Key สำหรับ Google Gemini`;
       const stream = new ReadableStream({
         start(controller) {
@@ -64,16 +75,16 @@ export async function POST(req: NextRequest) {
     }
 
     // Search for relevant products (with error handling)
-    let productContext = 'ไม่สามารถโหลดข้อมูลสินค้าได้ในขณะนี้';
+    let productContext = 'ยังไม่มีข้อมูลสินค้า';
     try {
       const relevantProducts = await searchProducts(lastUserMessage.content, 15);
       productContext = formatProductsForAI(relevantProducts);
+      console.log('Products found:', relevantProducts.length);
     } catch (productError) {
       console.error('Product search error:', productError);
-      // Continue without product data
     }
 
-    // System prompt with product data
+    // System prompt
     const systemPrompt = `คุณเป็นผู้ช่วยที่ปรึกษาสินค้าอาหารเสริม Amsel 
 คุณสามารถตอบคำถามเกี่ยวกับสินค้าจากข้อมูลด้านล่างนี้
 
@@ -85,70 +96,77 @@ ${productContext}
 2. ถ้าลูกค้าถามถึงสินค้าที่ไม่มีในรายการ ให้แจ้งว่าไม่พบสินค้านั้น
 3. แนะนำสินค้าที่เหมาะสมตามความต้องการของลูกค้า
 4. ตอบเป็นภาษาไทยเสมอ
-5. กระชับ เป็นมิตร และเป็นมืออาชีพ
-6. ถ้าลูกค้าต้องการรายละเอียดเพิ่ม สามารถบอกราคา SKU และหมวดหมู่ได้`;
+5. กระชับ เป็นมิตร และเป็นมืออาชีพ`;
 
     // Initialize Gemini
+    console.log('Initializing Gemini...');
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
       model: 'gemini-1.5-flash',
       systemInstruction: systemPrompt
     });
 
-    // Convert messages to Gemini format
-    const geminiHistory = messages
-      .filter((m: any) => m.role !== 'system')
-      .slice(0, -1)
+    // Convert messages to Gemini format (filter out invalid and ensure proper structure)
+    const geminiHistory = validMessages
+      .filter((m: any) => m.role !== 'system' && m.content && m.content.trim())
+      .slice(0, -1) // Remove last message (will be sent as current input)
       .map((m: any) => ({
         role: m.role === 'assistant' ? 'model' : 'user',
-        parts: [{ text: m.content }]
+        parts: [{ text: m.content.trim() }]
       }));
 
+    console.log('Gemini history length:', geminiHistory.length);
+
     // Start chat session and stream response
-    const chat = model.startChat({ history: geminiHistory });
-    const result = await chat.sendMessageStream(lastUserMessage.content);
+    try {
+      const chat = model.startChat({
+        history: geminiHistory.length > 0 ? geminiHistory : undefined
+      });
+      console.log('Sending message to Gemini...');
+      const result = await chat.sendMessageStream(lastUserMessage.content);
 
-    // Create stream that client can parse
-    const encoder = new TextEncoder();
-    const stream = new ReadableStream({
-      async start(controller) {
-        try {
-          for await (const chunk of result.stream) {
-            const text = chunk.text();
-            if (text) {
-              const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: text })}\n`;
-              controller.enqueue(encoder.encode(payload));
+      // Create stream that client can parse
+      const encoder = new TextEncoder();
+      const stream = new ReadableStream({
+        async start(controller) {
+          try {
+            for await (const chunk of result.stream) {
+              const text = chunk.text();
+              if (text) {
+                const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: text })}\n`;
+                controller.enqueue(encoder.encode(payload));
+              }
             }
+            controller.close();
+          } catch (streamError) {
+            console.error('Stream error:', streamError);
+            controller.error(streamError);
           }
-          controller.close();
-        } catch (error) {
-          controller.error(error);
         }
-      }
-    });
+      });
 
-    return new Response(stream, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+      return new Response(stream, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+
+    } catch (geminiError: any) {
+      console.error('Gemini API error:', geminiError);
+
+      // Return friendly error message
+      const errorMessage = geminiError.message?.includes('API key')
+        ? 'API key ไม่ถูกต้อง กรุณาตรวจสอบการตั้งค่า'
+        : 'ขออภัย ระบบ AI ไม่สามารถตอบได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง';
+
+      const stream = new ReadableStream({
+        start(controller) {
+          const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: errorMessage })}\n`;
+          controller.enqueue(new TextEncoder().encode(payload));
+          controller.close();
+        }
+      });
+      return new Response(stream, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+    }
 
   } catch (error) {
     console.error('Chat API error:', error);
-
-    if (error instanceof Error) {
-      if (error.message.includes('API key') || error.message.includes('authentication')) {
-        return new Response(JSON.stringify({
-          error: 'Authentication error',
-          message: 'Invalid or missing API key',
-          code: 'AUTH_ERROR'
-        }), { status: 401, headers: { 'Content-Type': 'application/json' } });
-      }
-
-      if (error.message.includes('rate limit') || error.message.includes('429')) {
-        return new Response(JSON.stringify({
-          error: 'Rate limit exceeded',
-          message: 'Too many requests. Please wait before trying again.',
-          code: 'RATE_LIMIT_ERROR'
-        }), { status: 429, headers: { 'Content-Type': 'application/json', 'Retry-After': '60' } });
-      }
-    }
 
     return new Response(JSON.stringify({
       error: 'Internal server error',
