@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { Conversation } from '../../types/chat';
-import { 
-  clearChatHistory, 
+import {
+  clearChatHistory,
   getConversationsOrderedByActivity,
   getConversationSummary,
   createNewConversation,
@@ -17,10 +17,10 @@ interface ConversationManagerProps {
   onClearHistory: () => void;
 }
 
-export default function ConversationManager({ 
-  currentConversationId, 
-  onConversationChange, 
-  onClearHistory 
+export default function ConversationManager({
+  currentConversationId,
+  onConversationChange,
+  onClearHistory
 }: ConversationManagerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
@@ -99,8 +99,14 @@ export default function ConversationManager({
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end sm:items-center justify-center">
-      <div className="bg-white rounded-t-2xl sm:rounded-2xl w-full sm:w-96 max-h-[80vh] flex flex-col">
+    <div
+      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+      onClick={() => setIsOpen(false)}
+    >
+      <div
+        className="bg-white rounded-2xl w-full max-w-sm max-h-[80vh] flex flex-col shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900">Conversations</h2>
@@ -125,7 +131,7 @@ export default function ConversationManager({
             </svg>
             New Conversation
           </button>
-          
+
           {conversations.length > 0 && (
             <button
               onClick={() => setShowClearConfirm(true)}
@@ -156,23 +162,21 @@ export default function ConversationManager({
               {conversations.map((conversation) => {
                 const summary = getConversationSummary(conversation);
                 const isActive = conversation.id === currentConversationId;
-                
+
                 return (
                   <div
                     key={conversation.id}
                     onClick={() => handleSwitchConversation(conversation.id)}
-                    className={`p-3 rounded-lg cursor-pointer transition-colors mb-2 group ${
-                      isActive 
-                        ? 'bg-indigo-50 border border-indigo-200' 
+                    className={`p-3 rounded-lg cursor-pointer transition-colors mb-2 group ${isActive
+                        ? 'bg-indigo-50 border border-indigo-200'
                         : 'hover:bg-gray-50 border border-transparent'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1">
-                          <h3 className={`text-sm font-medium truncate ${
-                            isActive ? 'text-indigo-900' : 'text-gray-900'
-                          }`}>
+                          <h3 className={`text-sm font-medium truncate ${isActive ? 'text-indigo-900' : 'text-gray-900'
+                            }`}>
                             {summary.title}
                           </h3>
                           {conversations.length > 1 && (
@@ -187,20 +191,17 @@ export default function ConversationManager({
                             </button>
                           )}
                         </div>
-                        <p className={`text-xs truncate ${
-                          isActive ? 'text-indigo-600' : 'text-gray-500'
-                        }`}>
+                        <p className={`text-xs truncate ${isActive ? 'text-indigo-600' : 'text-gray-500'
+                          }`}>
                           {summary.preview}
                         </p>
                         <div className="flex items-center justify-between mt-2">
-                          <span className={`text-xs ${
-                            isActive ? 'text-indigo-500' : 'text-gray-400'
-                          }`}>
+                          <span className={`text-xs ${isActive ? 'text-indigo-500' : 'text-gray-400'
+                            }`}>
                             {summary.messageCount} message{summary.messageCount !== 1 ? 's' : ''}
                           </span>
-                          <span className={`text-xs ${
-                            isActive ? 'text-indigo-500' : 'text-gray-400'
-                          }`}>
+                          <span className={`text-xs ${isActive ? 'text-indigo-500' : 'text-gray-400'
+                            }`}>
                             {formatRelativeTime(summary.lastActivity)}
                           </span>
                         </div>
