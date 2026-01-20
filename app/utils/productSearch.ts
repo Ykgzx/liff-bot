@@ -137,6 +137,6 @@ export function formatProductsForAI(products: Product[]): string {
     }
 
     return products.map(p =>
-        `- ${p.name} (SKU: ${p.sku}) | ราคา: ${p.promotionPrice}฿ | หมวดหมู่: ${p.categories || 'ไม่ระบุ'}`
+        `- ${p.name} | ราคา: ${p.promotionPrice}฿ | หมวดหมู่: ${p.categories || 'ไม่ระบุ'}`
     ).join('\n');
 }
