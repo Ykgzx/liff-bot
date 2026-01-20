@@ -221,7 +221,25 @@ ${productContext}
       })),
     });
 
-    return result.toTextStreamResponse();
+    // Create custom stream that client can parse
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          for await (const chunk of result.textStream) {
+            const payload = `0:${JSON.stringify({ type: 'text-delta', textDelta: chunk })}\n`;
+            controller.enqueue(encoder.encode(payload));
+          }
+          controller.close();
+        } catch (error) {
+          controller.error(error);
+        }
+      }
+    });
+
+    return new Response(stream, {
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+    });
 
   } catch (error) {
     console.error('Chat API error:', error);
