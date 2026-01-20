@@ -2,15 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChatMessage as ChatMessageType, Conversation } from '../types/chat';
-import {
-  validateMessageInput,
-  createMessage,
+import { 
+  validateMessageInput, 
+  createMessage, 
   getCurrentConversation,
   addMessageToConversation,
   getChatStorageWithFallback,
   checkStorageHealth
 } from '../utils/chat';
-import {
+import { 
   initializeNetworkMonitoring,
   enhancedFetch,
   createUserFriendlyErrorMessage,
@@ -49,11 +49,11 @@ export default function ChatPage() {
     if (!isInitialized) {
       // Initialize network monitoring
       initializeNetworkMonitoring();
-
+      
       // Set up connectivity listener
       const cleanup = addConnectivityListener((online) => {
         setIsOnline(online);
-
+        
         // Auto-process queued messages when coming back online
         if (online && queuedMessageCount > 0) {
           handleProcessQueuedMessages();
@@ -85,16 +85,16 @@ export default function ChatPage() {
     // Check storage health and load conversation with enhanced error handling
     const storageHealth = checkStorageHealth();
     const conversationResult = getCurrentConversation();
-
+    
     // Set storage warnings if any
     if (conversationResult.warning) {
       setStorageWarning(conversationResult.warning);
     }
-
+    
     // Get storage source information
     const storageInfo = getChatStorageWithFallback();
     setStorageSource(storageInfo.source);
-
+    
     // Display storage recommendations if needed
     if (storageHealth.recommendations.length > 0) {
       console.warn('Storage recommendations:', storageHealth.recommendations);
@@ -102,7 +102,7 @@ export default function ChatPage() {
         setStorageWarning(storageHealth.recommendations[0]);
       }
     }
-
+    
     // Set current conversation and convert messages for UI
     setCurrentConversation(conversationResult.conversation);
     const uiMessages = conversationResult.conversation.messages.map(msg => ({
@@ -111,13 +111,13 @@ export default function ChatPage() {
       content: msg.content,
       createdAt: msg.timestamp
     }));
-
+    
     setMessages(uiMessages);
   };
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({
-      behavior: UI_CONFIG.SCROLL_BEHAVIOR
+    messagesEndRef.current?.scrollIntoView({ 
+      behavior: UI_CONFIG.SCROLL_BEHAVIOR 
     });
   };
 
@@ -127,7 +127,7 @@ export default function ChatPage() {
 
   const handleConversationChange = (conversation: Conversation) => {
     setCurrentConversation(conversation);
-
+    
     // Convert messages for UI display
     const uiMessages = conversation.messages.map(msg => ({
       id: msg.id,
@@ -135,7 +135,7 @@ export default function ChatPage() {
       content: msg.content,
       createdAt: msg.timestamp
     }));
-
+    
     setMessages(uiMessages);
     setError(null);
     setRetryCount(0);
@@ -150,10 +150,10 @@ export default function ChatPage() {
 
   const handleRetry = async () => {
     if (!error || !input.trim()) return;
-
+    
     setError(null);
     setRetryCount(prev => prev + 1);
-
+    
     // Retry the last failed operation
     await handleSubmit(new Event('submit') as any);
   };
@@ -193,12 +193,10 @@ export default function ChatPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messages: [...messages, { role: 'user', content: messageContent }]
-            .filter(msg => msg.role && msg.content && msg.content.trim().length > 0)
-            .map(msg => ({
-              role: msg.role,
-              content: msg.content
-            }))
+          messages: [...messages, { role: 'user', content: messageContent }].map(msg => ({
+            role: msg.role,
+            content: msg.content
+          }))
         }),
       }, {
         maxRetries: ERROR_HANDLING_CONFIG.maxRetries,
@@ -233,44 +231,22 @@ export default function ChatPage() {
         const lines = chunk.split('\n');
 
         for (const line of lines) {
-          if (!line.trim()) continue;
-
-          // Handle Vercel AI SDK text stream format: 0:"text content"
           if (line.startsWith('0:')) {
-            const payload = line.slice(2);
             try {
-              // Try to parse as JSON (handles escaped strings properly)
-              const parsed = JSON.parse(payload);
-              if (typeof parsed === 'string') {
-                assistantContent += parsed;
-              } else if (parsed.type === 'text-delta' && parsed.textDelta) {
-                // Custom format fallback
-                assistantContent += parsed.textDelta;
+              const data = JSON.parse(line.slice(2));
+              if (data.type === 'text-delta' && data.textDelta) {
+                assistantContent += data.textDelta;
+                setMessages(prev => 
+                  prev.map(msg => 
+                    msg.id === assistantMessage.id 
+                      ? { ...msg, content: assistantContent }
+                      : msg
+                  )
+                );
               }
             } catch (e) {
-              // If JSON parse fails, try to extract text directly
-              if (payload.startsWith('"') && payload.endsWith('"')) {
-                // Remove surrounding quotes and unescape
-                try {
-                  const text = JSON.parse(payload);
-                  assistantContent += text;
-                } catch {
-                  // Last resort: strip quotes manually
-                  assistantContent += payload.slice(1, -1);
-                }
-              }
+              // Ignore parsing errors for partial chunks
             }
-          }
-
-          // Update message content after processing each line
-          if (assistantContent) {
-            setMessages(prev =>
-              prev.map(msg =>
-                msg.id === assistantMessage.id
-                  ? { ...msg, content: assistantContent }
-                  : msg
-              )
-            );
           }
         }
       }
@@ -287,14 +263,14 @@ export default function ChatPage() {
           error
         );
       }
-
+      
       throw error;
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    
     // Enhanced validation with better error handling (Requirements 2.3, 2.4)
     if (!validateMessageInput(input)) {
       // Maintain input state on validation failure - do not clear input
@@ -316,11 +292,11 @@ export default function ChatPage() {
 
     // Add user message to UI
     setMessages(prev => [...prev, userMessage]);
-
+    
     // Save user message to local storage with enhanced error handling
     const userChatMessage = createMessage('user', input);
     const saveResult = addMessageToConversation(currentConversation.id, userChatMessage);
-
+    
     // Handle storage warnings
     if (saveResult.warning && saveResult.warning !== storageWarning) {
       setStorageWarning(saveResult.warning);
@@ -339,7 +315,7 @@ export default function ChatPage() {
       // Save AI response to local storage with enhanced error handling
       const aiChatMessage = createMessage('assistant', assistantContent);
       const aiSaveResult = addMessageToConversation(currentConversation.id, aiChatMessage);
-
+      
       // Handle storage warnings for AI response
       if (aiSaveResult.warning && aiSaveResult.warning !== storageWarning) {
         setStorageWarning(aiSaveResult.warning);
@@ -350,10 +326,10 @@ export default function ChatPage() {
 
     } catch (err) {
       console.error('Chat error:', err);
-
+      
       // Create appropriate error based on error type
       let displayError = err as Error;
-
+      
       // Handle network errors specially
       if (err instanceof NetworkError) {
         if (err.message.includes('queued')) {
@@ -367,12 +343,12 @@ export default function ChatPage() {
           return; // Don't show error or restore input
         }
       }
-
+      
       setError(displayError);
-
+      
       // Restore input on error to maintain user input state (Requirements 5.4)
       setInput(currentInput);
-
+      
     } finally {
       setIsLoading(false);
     }
@@ -402,7 +378,7 @@ export default function ChatPage() {
               )}
             </p>
           </div>
-
+          
           {/* Conversation Management Button */}
           <ConversationManager
             currentConversationId={currentConversation?.id || null}
@@ -410,7 +386,7 @@ export default function ChatPage() {
             onClearHistory={handleClearHistory}
           />
         </div>
-
+        
         {/* Storage Warning Banner */}
         {storageWarning && (
           <div className="mt-2 p-2 bg-amber-50 border border-amber-200 rounded-lg">
@@ -436,13 +412,13 @@ export default function ChatPage() {
       </div>
 
       {/* Network Status */}
-      <NetworkStatus
+      <NetworkStatus 
         onRetryQueuedMessages={handleProcessQueuedMessages}
         className="px-4 pt-2"
       />
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 pb-40">
+      <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 pb-20">
         {/* Welcome Message */}
         {messages.length === 0 && (
           <div className="flex justify-center">
@@ -455,14 +431,14 @@ export default function ChatPage() {
 
         {/* Chat Messages */}
         {messages.map((message) => (
-          <Message
-            key={message.id}
+          <Message 
+            key={message.id} 
             message={{
               id: message.id,
               role: message.role,
               content: message.content,
               timestamp: message.createdAt || new Date()
-            }}
+            }} 
             isStreaming={isLoading && message.role === 'assistant' && message === messages[messages.length - 1]}
           />
         ))}
