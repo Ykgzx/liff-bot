@@ -69,7 +69,17 @@ export async function POST(req: NextRequest) {
     // Search for products (with error handling)
     let productContext = '';
     try {
-      const relevantProducts = await searchProducts(lastUserMessage.content, 10);
+      let relevantProducts = await searchProducts(lastUserMessage.content, 10);
+
+      // If no text match but user asks about "products", fetch top products (fallback)
+      const isProductQuery = /สินค้า|ขายอะไร|มีอะไร|รายการ|ราคา|แนะนำ/i.test(lastUserMessage.content);
+      if (relevantProducts.length === 0 && isProductQuery) {
+        console.log('[Chat API] No direct match, fetching all products for context...');
+        const { getAllProducts } = require('@/app/utils/productSearch');
+        const allProducts = await getAllProducts();
+        relevantProducts = allProducts.slice(0, 30); // Limit context
+      }
+
       productContext = formatProductsForAI(relevantProducts);
       console.log('[Chat API] Products found:', relevantProducts.length);
     } catch (e) {
