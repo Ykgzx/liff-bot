@@ -63,9 +63,15 @@ export async function POST(req: NextRequest) {
       return new Response(stream, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
     }
 
-    // Search for relevant products
-    const relevantProducts = await searchProducts(lastUserMessage.content, 15);
-    const productContext = formatProductsForAI(relevantProducts);
+    // Search for relevant products (with error handling)
+    let productContext = 'ไม่สามารถโหลดข้อมูลสินค้าได้ในขณะนี้';
+    try {
+      const relevantProducts = await searchProducts(lastUserMessage.content, 15);
+      productContext = formatProductsForAI(relevantProducts);
+    } catch (productError) {
+      console.error('Product search error:', productError);
+      // Continue without product data
+    }
 
     // System prompt with product data
     const systemPrompt = `คุณเป็นผู้ช่วยที่ปรึกษาสินค้าอาหารเสริม Amsel 
